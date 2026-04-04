@@ -3,28 +3,29 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>11月姨姨賞楓團 — 行程總覽</title>
+<title>11月姨姨賞楓團 v2.0 — 北九州全自駕行程</title>
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { font-family: -apple-system, "Noto Sans TC", "Microsoft JhengHei", sans-serif; background: #f5f0eb; color: #333; line-height: 1.7; padding: 16px; }
-  .container { max-width: 740px; margin: 0 auto; }
+  body { font-family: -apple-system, "Noto Sans TC", "Microsoft JhengHei", "PingFang TC", sans-serif; background: #f5f0eb; color: #333; line-height: 1.7; padding: 16px; }
+  .container { max-width: 780px; margin: 0 auto; }
 
   /* Header */
-  .header { text-align: center; padding: 28px 0 18px; }
-  .header h1 { font-size: 1.6em; color: #8B4513; }
-  .header .subtitle { color: #999; font-size: 0.88em; margin-top: 4px; }
-  .header .dates { display: inline-block; background: #D2691E; color: #fff; padding: 6px 18px; border-radius: 20px; margin-top: 10px; font-size: 0.95em; }
+  .header { text-align: center; padding: 32px 0 20px; }
+  .header h1 { font-size: 1.7em; color: #8B4513; }
+  .header .subtitle { color: #888; font-size: 0.88em; margin-top: 4px; }
+  .header .dates { display: inline-block; background: #D2691E; color: #fff; padding: 6px 18px; border-radius: 20px; margin-top: 10px; font-size: 0.92em; }
+  .header .version { display: inline-block; background: #8B4513; color: #fff; padding: 2px 10px; border-radius: 10px; font-size: 0.72em; margin-top: 8px; letter-spacing: 1px; }
 
-  /* Nav tabs */
-  .nav { display: flex; justify-content: center; gap: 8px; margin-bottom: 20px; flex-wrap: wrap; }
-  .nav a { text-decoration: none; padding: 8px 18px; border-radius: 20px; font-size: 0.88em; color: #8B4513; background: #fff; border: 1.5px solid #e0d5c8; transition: all 0.2s; }
-  .nav a:hover, .nav a.active { background: #D2691E; color: #fff; border-color: #D2691E; }
+  /* Nav */
+  .nav { display: flex; justify-content: center; gap: 6px; margin-bottom: 24px; flex-wrap: wrap; }
+  .nav a { text-decoration: none; padding: 7px 14px; border-radius: 20px; font-size: 0.82em; color: #8B4513; background: #fff; border: 1.5px solid #e0d5c8; transition: all 0.2s; }
+  .nav a:hover { background: #D2691E; color: #fff; border-color: #D2691E; }
 
   /* Section titles */
-  .section-title { font-size: 1.2em; color: #8B4513; text-align: center; margin: 28px 0 16px; padding-bottom: 8px; border-bottom: 2px solid #e0d5c8; }
+  .section-title { font-size: 1.15em; color: #8B4513; text-align: center; margin: 32px 0 16px; padding-bottom: 8px; border-bottom: 2px solid #e0d5c8; }
   .section-title span { font-size: 0.75em; color: #aaa; display: block; font-weight: normal; margin-top: 2px; }
 
-  /* Cards (shared) */
+  /* Cards */
   .card { background: #fff; border-radius: 12px; padding: 20px; margin-bottom: 16px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
 
   /* Note boxes */
@@ -32,7 +33,7 @@
   .note strong { color: #8B4513; }
 
   /* Tags */
-  .tag { display: inline-block; font-size: 0.72em; padding: 2px 8px; border-radius: 10px; color: #fff; margin-left: 4px; vertical-align: middle; }
+  .tag { display: inline-block; font-size: 0.7em; padding: 2px 8px; border-radius: 10px; color: #fff; margin-left: 4px; vertical-align: middle; }
   .tag-maple { background: #C0392B; }
   .tag-onsen { background: #2980B9; }
   .tag-shop { background: #27AE60; }
@@ -45,37 +46,93 @@
   .legend span { display: inline-flex; align-items: center; gap: 4px; }
   .legend .dot { width: 12px; height: 12px; border-radius: 50%; display: inline-block; }
 
+  /* Flow chart */
+  .flow { display: flex; overflow-x: auto; gap: 0; padding: 16px 0; align-items: flex-start; }
+  .flow-node { text-align: center; min-width: 95px; flex-shrink: 0; position: relative; }
+  .flow-circle { width: 48px; height: 48px; border-radius: 50%; background: #D2691E; color: #fff; display: flex; align-items: center; justify-content: center; font-size: 0.75em; font-weight: 700; margin: 0 auto 6px; }
+  .flow-label { font-size: 0.72em; color: #555; }
+  .flow-stay { font-size: 0.68em; color: #D2691E; font-weight: 600; margin-top: 2px; }
+  .flow-arrow { color: #ccc; font-size: 1.2em; line-height: 48px; margin: 0 -4px; flex-shrink: 0; }
+
   /* Overview table */
-  .overview table { width: 100%; border-collapse: collapse; font-size: 0.85em; }
-  .overview th { background: #FFF8F0; text-align: left; padding: 8px 10px; border-bottom: 2px solid #D2691E; color: #8B4513; }
-  .overview td { padding: 8px 10px; border-bottom: 1px solid #eee; }
+  .overview table { width: 100%; border-collapse: collapse; font-size: 0.82em; }
+  .overview th { background: #FFF8F0; text-align: left; padding: 8px 10px; border-bottom: 2px solid #D2691E; color: #8B4513; font-size: 0.9em; }
+  .overview td { padding: 8px 10px; border-bottom: 1px solid #eee; vertical-align: top; }
+  .overview tr:hover { background: #FFFAF5; }
+  .lunch-warn { color: #C0392B; font-weight: 700; }
 
-  /* Route list */
-  .route-item { display: flex; align-items: flex-start; gap: 12px; padding: 10px 0; border-bottom: 1px solid #f0e8e0; }
-  .route-item:last-child { border-bottom: none; }
-  .route-day { background: #D2691E; color: #fff; padding: 3px 10px; border-radius: 12px; font-size: 0.8em; white-space: nowrap; min-width: 60px; text-align: center; margin-top: 2px; }
-  .route-desc { font-size: 0.88em; }
-  .route-desc .place { font-weight: 600; }
-  .route-desc .time { color: #888; font-size: 0.9em; }
+  /* Daily detail accordion */
+  .day-card { background: #fff; border-radius: 12px; margin-bottom: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); overflow: hidden; }
+  .day-header { padding: 16px 20px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; user-select: none; transition: background 0.2s; }
+  .day-header:hover { background: #FFFAF5; }
+  .day-header h3 { font-size: 0.98em; color: #333; }
+  .day-header .day-badge { background: #D2691E; color: #fff; padding: 3px 10px; border-radius: 12px; font-size: 0.78em; white-space: nowrap; margin-right: 10px; }
+  .day-header .arrow { font-size: 0.9em; color: #aaa; transition: transform 0.2s; }
+  .day-header.open .arrow { transform: rotate(90deg); }
+  .day-body { padding: 0 20px 20px; display: none; }
+  .day-body.show { display: block; }
+  .tl { border-left: 3px solid #e0d5c8; margin-left: 8px; padding-left: 16px; }
+  .tl-item { padding: 6px 0; font-size: 0.85em; position: relative; }
+  .tl-item::before { content: ''; width: 10px; height: 10px; border-radius: 50%; background: #D2691E; position: absolute; left: -22px; top: 12px; }
+  .tl-time { font-weight: 600; color: #D2691E; }
+  .tl-note { font-size: 0.82em; color: #888; margin-top: 2px; }
+  .day-tips { background: #FFF8F0; border-radius: 8px; padding: 12px 14px; margin-top: 12px; font-size: 0.82em; color: #555; }
+  .day-tips strong { color: #8B4513; }
 
-  /* Decision cards */
+  /* Vote section */
   .decision { background: #fff; border-radius: 12px; margin-bottom: 18px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
   .decision-header { padding: 16px 20px 12px; border-bottom: 1px solid #f0e8e0; }
-  .decision-header .day { font-size: 0.8em; color: #D2691E; font-weight: 600; }
-  .decision-header h3 { font-size: 1.05em; margin-top: 2px; }
-  .decision-header .context { font-size: 0.85em; color: #777; margin-top: 4px; }
+  .decision-header .qnum { font-size: 0.8em; color: #D2691E; font-weight: 600; }
+  .decision-header h3 { font-size: 1em; margin-top: 2px; }
+  .decision-header .context { font-size: 0.83em; color: #777; margin-top: 4px; }
   .options { padding: 0 20px 16px; }
-  .option { border: 2px solid #f0e8e0; border-radius: 10px; padding: 14px 16px; margin-top: 12px; transition: border-color 0.2s; }
+  .option { border: 2px solid #f0e8e0; border-radius: 10px; padding: 14px 16px; margin-top: 12px; transition: border-color 0.2s; cursor: pointer; }
   .option:hover { border-color: #D2691E; }
   .option.recommended { border-color: #D2691E; background: #FFF8F0; }
-  .option .label { font-weight: 600; font-size: 0.95em; }
-  .option .label .rec { font-size: 0.75em; background: #D2691E; color: #fff; padding: 2px 8px; border-radius: 8px; margin-left: 6px; vertical-align: middle; }
-  .option .desc { font-size: 0.85em; color: #666; margin-top: 4px; }
-  .option .pros { font-size: 0.82em; color: #27AE60; margin-top: 4px; }
-  .option .cons { font-size: 0.82em; color: #C0392B; margin-top: 2px; }
-  .vote-box { display: inline-block; width: 20px; height: 20px; border: 2px solid #ccc; border-radius: 5px; vertical-align: middle; margin-right: 6px; }
+  .option .label { font-weight: 600; font-size: 0.92em; }
+  .option .label .rec { font-size: 0.72em; background: #D2691E; color: #fff; padding: 2px 8px; border-radius: 8px; margin-left: 6px; vertical-align: middle; }
+  .option .desc { font-size: 0.83em; color: #666; margin-top: 4px; }
+  .option .pros { font-size: 0.8em; color: #27AE60; margin-top: 4px; }
+  .option .cons { font-size: 0.8em; color: #C0392B; margin-top: 2px; }
+  .vote-box { display: inline-block; width: 18px; height: 18px; border: 2px solid #ccc; border-radius: 4px; vertical-align: middle; margin-right: 6px; cursor: pointer; }
+  .vote-box.checked { background: #D2691E; border-color: #D2691E; }
 
-  .footer { text-align: center; padding: 20px 0; font-size: 0.78em; color: #aaa; }
+  /* Accommodation cards */
+  .hotel-grid { display: grid; grid-template-columns: 1fr; gap: 14px; }
+  .hotel-card { background: #fff; border-radius: 12px; padding: 18px; border: 2px solid #f0e8e0; }
+  .hotel-card h4 { color: #8B4513; font-size: 0.95em; margin-bottom: 4px; }
+  .hotel-card .price { color: #D2691E; font-size: 0.85em; font-weight: 600; }
+  .hotel-card .hotel-desc { font-size: 0.82em; color: #666; margin-top: 6px; }
+  .hotel-card .hotel-highlight { font-size: 0.8em; color: #27AE60; margin-top: 4px; }
+  .compare-table { width: 100%; border-collapse: collapse; font-size: 0.8em; margin-top: 12px; }
+  .compare-table th { background: #FFF8F0; padding: 8px; text-align: left; color: #8B4513; border-bottom: 2px solid #D2691E; }
+  .compare-table td { padding: 8px; border-bottom: 1px solid #eee; }
+
+  /* Meal guide */
+  .meal-day { display: flex; align-items: center; gap: 10px; padding: 8px 0; border-bottom: 1px solid #f0e8e0; font-size: 0.85em; }
+  .meal-day:last-child { border-bottom: none; }
+  .traffic-light { width: 22px; height: 22px; border-radius: 50%; flex-shrink: 0; }
+  .tl-green { background: #27AE60; }
+  .tl-red { background: #C0392B; }
+  .meal-info { flex: 1; }
+  .meal-warn { font-size: 0.82em; color: #C0392B; font-weight: 600; }
+
+  .footer { text-align: center; padding: 28px 0; font-size: 0.78em; color: #aaa; }
+  .footer .vote-fmt { background: #FFF8F0; border-radius: 8px; padding: 12px 16px; margin: 12px auto; max-width: 500px; font-size: 1.1em; color: #555; }
+
+  /* Mobile */
+  @media (max-width: 600px) {
+    body { padding: 10px; }
+    .header h1 { font-size: 1.3em; }
+    .nav a { padding: 6px 10px; font-size: 0.78em; }
+    .flow { flex-direction: column; align-items: stretch; }
+    .flow-arrow { transform: rotate(90deg); line-height: 1; text-align: center; margin: 4px 0; }
+    .flow-node { min-width: auto; display: flex; align-items: center; gap: 12px; text-align: left; }
+    .flow-circle { margin: 0; flex-shrink: 0; }
+    .overview table { font-size: 0.75em; }
+    .overview th, .overview td { padding: 6px 6px; }
+    .hotel-grid { grid-template-columns: 1fr; }
+  }
 </style>
 </head>
 <body>
@@ -86,16 +143,21 @@
   <h1>11月姨姨賞楓團</h1>
   <div class="subtitle">北九州全自駕 ‧ 4大1小 ‧ 賞楓 / 溫泉 / 購物 / 遛小孩</div>
   <div class="dates">2026 / 11 / 18 (三) — 11 / 24 (二) ‧ 7天6夜</div>
+  <br>
+  <div class="version">v2.0</div>
 </div>
 
 <div class="nav">
-  <a href="#map" class="active">地圖</a>
-  <a href="#overview">行程總覽</a>
+  <a href="#map">地圖</a>
+  <a href="#flow">行程流程</a>
+  <a href="#overview">每日詳情</a>
   <a href="#vote">投票決策</a>
+  <a href="#hotel">住宿</a>
+  <a href="#meal">用餐</a>
 </div>
 
 <!-- ======================== PART 1: MAP ======================== -->
-<div class="section-title" id="map">北九州地圖<span>先搞懂這幾個地方在哪裡、開車多遠</span></div>
+<div class="section-title" id="map">北九州簡易地圖<span>先搞懂這幾個地方在哪裡、開車多遠</span></div>
 
 <div class="card">
   <div class="map-wrap">
@@ -107,12 +169,13 @@
     </div>
     <svg viewBox="0 0 700 620" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;">
       <rect width="700" height="620" fill="#E8F4F8" rx="10"/>
+      <!-- Kyushu outline -->
       <path d="M 120,50 C 180,30 350,20 480,40 C 560,55 620,100 650,180 C 670,250 660,350 640,420 C 620,480 580,530 520,570 C 450,610 350,620 280,600 C 200,580 140,530 100,460 C 70,390 60,300 70,220 C 75,140 90,80 120,50 Z" fill="#F5EFE6" stroke="#C8B99A" stroke-width="2"/>
       <text x="580" y="100" font-size="13" fill="#8BB8CC" font-style="italic">玄界灘</text>
       <text x="30" y="350" font-size="13" fill="#8BB8CC" font-style="italic" transform="rotate(-90,30,350)">有明海</text>
-      <text x="620" y="340" font-size="13" fill="#8BB8CC" font-style="italic" transform="rotate(90,640,340)">別府灣</text>
+      <text x="620" y="380" font-size="13" fill="#8BB8CC" font-style="italic" transform="rotate(90,640,380)">別府灣</text>
 
-      <!-- Roads -->
+      <!-- Roads (dashed) -->
       <line x1="390" y1="120" x2="280" y2="145" stroke="#ddd" stroke-width="2.5" stroke-dasharray="6,4"/>
       <line x1="280" y1="145" x2="310" y2="200" stroke="#ddd" stroke-width="2.5" stroke-dasharray="6,4"/>
       <line x1="390" y1="120" x2="280" y2="250" stroke="#ddd" stroke-width="2.5" stroke-dasharray="6,4"/>
@@ -121,6 +184,20 @@
       <line x1="520" y1="300" x2="580" y2="270" stroke="#ddd" stroke-width="2.5" stroke-dasharray="6,4"/>
       <line x1="430" y1="190" x2="580" y2="270" stroke="#ddd" stroke-width="2.5" stroke-dasharray="6,4"/>
       <path d="M 240,290 C 320,300 430,290 520,300" stroke="#ddd" stroke-width="2.5" stroke-dasharray="6,4" fill="none"/>
+      <line x1="390" y1="120" x2="240" y2="290" stroke="#ddd" stroke-width="2.5" stroke-dasharray="6,4"/>
+
+      <!-- Route arrows (counterclockwise) -->
+      <defs>
+        <marker id="arrowhead" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+          <polygon points="0 0, 8 3, 0 6" fill="#D2691E" opacity="0.6"/>
+        </marker>
+      </defs>
+      <path d="M 380,130 C 350,135 310,140 290,145" stroke="#D2691E" stroke-width="2" stroke-dasharray="8,4" fill="none" marker-end="url(#arrowhead)" opacity="0.5"/>
+      <path d="M 290,155 L 305,190" stroke="#D2691E" stroke-width="2" stroke-dasharray="8,4" fill="none" marker-end="url(#arrowhead)" opacity="0.5"/>
+      <path d="M 320,205 C 380,230 460,270 510,290" stroke="#D2691E" stroke-width="2" stroke-dasharray="8,4" fill="none" marker-end="url(#arrowhead)" opacity="0.5"/>
+      <path d="M 520,290 L 435,195" stroke="#D2691E" stroke-width="2" stroke-dasharray="8,4" fill="none" marker-end="url(#arrowhead)" opacity="0.5"/>
+      <path d="M 435,195 L 575,265" stroke="#D2691E" stroke-width="2" stroke-dasharray="8,4" fill="none" marker-end="url(#arrowhead)" opacity="0.5"/>
+      <path d="M 570,275 C 510,310 430,280 395,130" stroke="#D2691E" stroke-width="2" stroke-dasharray="8,4" fill="none" marker-end="url(#arrowhead)" opacity="0.5"/>
 
       <!-- Fukuoka -->
       <circle cx="390" cy="120" r="18" fill="#F39C12" stroke="#fff" stroke-width="2.5" opacity="0.9"/>
@@ -158,7 +235,7 @@
       <circle cx="520" cy="300" r="16" fill="#3498DB" stroke="#fff" stroke-width="2.5" opacity="0.9"/>
       <text x="520" y="305" text-anchor="middle" font-size="11" fill="#fff" font-weight="bold">由布院</text>
       <text x="520" y="325" text-anchor="middle" font-size="10" fill="#3498DB">溫泉 2晚</text>
-      <text x="520" y="338" text-anchor="middle" font-size="9" fill="#888">金鱗湖・花卉村</text>
+      <text x="520" y="338" text-anchor="middle" font-size="9" fill="#888">金鱗湖・湯の坪街道</text>
 
       <!-- Beppu -->
       <circle cx="580" cy="270" r="16" fill="#3498DB" stroke="#fff" stroke-width="2.5" opacity="0.9"/>
@@ -175,134 +252,387 @@
       <text x="295" y="178" text-anchor="middle" font-size="9" fill="#666">40 min</text>
       <rect x="310" y="178" width="50" height="18" rx="9" fill="#fff" stroke="#ccc" stroke-width="1"/>
       <text x="335" y="191" text-anchor="middle" font-size="9" fill="#666">40 min</text>
-      <rect x="430" y="220" width="50" height="18" rx="9" fill="#fff" stroke="#ccc" stroke-width="1"/>
-      <text x="455" y="233" text-anchor="middle" font-size="9" fill="#666">2h</text>
-      <rect x="450" y="238" width="50" height="18" rx="9" fill="#fff" stroke="#ccc" stroke-width="1"/>
-      <text x="475" y="251" text-anchor="middle" font-size="9" fill="#666">1h</text>
+      <rect x="430" y="230" width="50" height="18" rx="9" fill="#fff" stroke="#ccc" stroke-width="1"/>
+      <text x="455" y="243" text-anchor="middle" font-size="9" fill="#666">2h</text>
+      <rect x="460" y="238" width="50" height="18" rx="9" fill="#fff" stroke="#ccc" stroke-width="1"/>
+      <text x="485" y="251" text-anchor="middle" font-size="9" fill="#666">1h</text>
       <rect x="536" y="278" width="50" height="18" rx="9" fill="#fff" stroke="#ccc" stroke-width="1"/>
       <text x="561" y="291" text-anchor="middle" font-size="9" fill="#666">30 min</text>
       <rect x="498" y="218" width="50" height="18" rx="9" fill="#fff" stroke="#ccc" stroke-width="1"/>
       <text x="523" y="231" text-anchor="middle" font-size="9" fill="#666">1h</text>
-      <rect x="360" y="286" width="56" height="18" rx="9" fill="#fff" stroke="#ccc" stroke-width="1"/>
-      <text x="388" y="299" text-anchor="middle" font-size="9" fill="#666">2.5h</text>
+      <rect x="295" y="260" width="56" height="18" rx="9" fill="#fff" stroke="#ccc" stroke-width="1"/>
+      <text x="323" y="273" text-anchor="middle" font-size="9" fill="#666">1.5h</text>
 
       <!-- Route summary -->
-      <text x="350" y="420" text-anchor="middle" font-size="12" fill="#D2691E" font-weight="bold">行車路線順序</text>
+      <text x="350" y="420" text-anchor="middle" font-size="12" fill="#D2691E" font-weight="bold">逆時針路線</text>
       <text x="350" y="440" text-anchor="middle" font-size="11" fill="#888">福岡 → 雷山/秋月 → 由布院 → 耶馬溪 → 別府 → 福岡</text>
 
       <rect x="100" y="460" width="500" height="140" rx="12" fill="#fff" stroke="#e0d5c8" stroke-width="1.5"/>
       <text x="350" y="485" text-anchor="middle" font-size="12" fill="#8B4513" font-weight="bold">距離感速查</text>
-      <text x="130" y="510" font-size="11" fill="#555">福岡 → 鳥栖 Outlets</text>
+      <text x="130" y="510" font-size="11" fill="#555">福岡 → 雷山千如寺</text>
       <text x="420" y="510" font-size="11" fill="#D2691E" font-weight="600">40 分鐘</text>
-      <text x="520" y="510" font-size="10" fill="#888">購物日</text>
-      <text x="130" y="530" font-size="11" fill="#555">福岡 → 雷山千如寺</text>
-      <text x="420" y="530" font-size="11" fill="#D2691E" font-weight="600">40 分鐘</text>
-      <text x="520" y="530" font-size="10" fill="#888">賞楓起點</text>
-      <text x="130" y="550" font-size="11" fill="#555">福岡 → 由布院</text>
-      <text x="420" y="550" font-size="11" fill="#D2691E" font-weight="600">2 小時</text>
-      <text x="520" y="550" font-size="10" fill="#888">最長單段</text>
+      <text x="520" y="510" font-size="10" fill="#888">賞楓起點</text>
+      <text x="130" y="530" font-size="11" fill="#555">秋月 → 由布院</text>
+      <text x="420" y="530" font-size="11" fill="#D2691E" font-weight="600">1.5 小時</text>
+      <text x="520" y="530" font-size="10" fill="#888">最長單段</text>
+      <text x="130" y="550" font-size="11" fill="#555">由布院 → 深耶馬溪</text>
+      <text x="420" y="550" font-size="11" fill="#D2691E" font-weight="600">1 小時</text>
+      <text x="520" y="550" font-size="10" fill="#888">賞楓主場</text>
       <text x="130" y="570" font-size="11" fill="#555">由布院 ↔ 別府</text>
       <text x="420" y="570" font-size="11" fill="#D2691E" font-weight="600">30 分鐘</text>
       <text x="520" y="570" font-size="10" fill="#888">超近！</text>
-      <text x="130" y="590" font-size="11" fill="#555">由布院 → 深耶馬溪</text>
-      <text x="420" y="590" font-size="11" fill="#D2691E" font-weight="600">1 小時</text>
-      <text x="520" y="590" font-size="10" fill="#888">賞楓主場</text>
+      <text x="130" y="590" font-size="11" fill="#555">別府 → 福岡</text>
+      <text x="420" y="590" font-size="11" fill="#D2691E" font-weight="600">2 小時</text>
+      <text x="520" y="590" font-size="10" fill="#888">高速直達</text>
     </svg>
   </div>
 </div>
 
 <div class="note">
-  <strong>給完全沒去過九州的人：</strong><br>
+  <strong>給沒去過九州的人：</strong><br>
   九州大概是台灣的 1.2 倍大，但北九州（我們要去的範圍）大概只有台灣北部（台北到新竹）的感覺。福岡就像台北，是最大的都市有機場和購物；由布院像是北投/烏來的溫泉街放大版；別府是世界級溫泉城市，溫泉量日本第一。整個行程範圍開車都在 2 小時以內，不會有「怎麼一直在開車」的感覺。
 </div>
 
-<!-- ======================== PART 2: OVERVIEW ======================== -->
-<div class="section-title" id="overview">行程總覽<span>逆時針繞一圈：福岡 → 賞楓 → 由布院 → 耶馬溪 → 別府 → 福岡</span></div>
+<!-- ======================== PART 2: FLOW CHART ======================== -->
+<div class="section-title" id="flow">行程流程圖<span>七天一圈：福岡出發 → 逆時針繞 → 福岡回家</span></div>
 
-<div class="card overview">
+<div class="card">
+  <div class="flow">
+    <div class="flow-node">
+      <div class="flow-circle">Day1</div>
+      <div>
+        <div class="flow-label">抵達福岡</div>
+        <div class="flow-label">麵包超人</div>
+        <div class="flow-stay">住 福岡</div>
+      </div>
+    </div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-node">
+      <div class="flow-circle" style="background:#C0392B">Day2</div>
+      <div>
+        <div class="flow-label">雷山→秋月</div>
+        <div class="flow-label">→由布院</div>
+        <div class="flow-stay">住 由布院①</div>
+      </div>
+    </div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-node">
+      <div class="flow-circle" style="background:#2980B9">Day3</div>
+      <div>
+        <div class="flow-label">由布院散策</div>
+        <div class="flow-label">宇奈岐日女</div>
+        <div class="flow-stay">住 由布院②</div>
+      </div>
+    </div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-node">
+      <div class="flow-circle" style="background:#C0392B">Day4</div>
+      <div>
+        <div class="flow-label">耶馬溪</div>
+        <div class="flow-label">一目八景</div>
+        <div class="flow-stay">住 杉乃井①</div>
+      </div>
+    </div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-node">
+      <div class="flow-circle" style="background:#2980B9">Day5</div>
+      <div>
+        <div class="flow-label">別府觀光</div>
+        <div class="flow-label">飯店放鬆</div>
+        <div class="flow-stay">住 杉乃井②</div>
+      </div>
+    </div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-node">
+      <div class="flow-circle" style="background:#27AE60">Day6</div>
+      <div>
+        <div class="flow-label">→福岡購物</div>
+        <div class="flow-label">天神/博多</div>
+        <div class="flow-stay">住 福岡</div>
+      </div>
+    </div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-node">
+      <div class="flow-circle" style="background:#7F8C8D">Day7</div>
+      <div>
+        <div class="flow-label">最後逛逛</div>
+        <div class="flow-label">機場回家</div>
+        <div class="flow-stay">✈ 回台灣</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ======================== PART 3: OVERVIEW TABLE ======================== -->
+<div class="section-title">行程總覽表<span>一表看完七天，紅色標記午餐需提前準備</span></div>
+
+<div class="card overview" style="overflow-x:auto;">
   <table>
-    <tr><th>日期</th><th>白天行程</th><th>住宿</th></tr>
+    <tr><th>日期</th><th>行程</th><th>住宿</th><th>午餐</th><th>晚餐</th><th>注意</th></tr>
     <tr>
-      <td><strong>11/18 三</strong></td>
-      <td>抵達福岡 → 半日自由活動 <span class="tag tag-kid">遛小孩</span></td>
+      <td><strong>Day1</strong><br>11/18 三</td>
+      <td>機場取車→麵包超人博物館 <span class="tag tag-kid">遛小孩</span></td>
       <td>福岡市區</td>
-    </tr>
-    <tr>
-      <td><strong>11/19 四</strong></td>
-      <td>購物日 <span class="tag tag-shop">購物</span></td>
-      <td>福岡市區</td>
-    </tr>
-    <tr>
-      <td><strong>11/20 五</strong></td>
-      <td>賞楓日 → 移動到由布院 <span class="tag tag-maple">賞楓</span> <span class="tag tag-drive">車程2-2.5h</span></td>
-      <td>由布院溫泉 ①</td>
-    </tr>
-    <tr>
-      <td><strong>11/21 六</strong></td>
-      <td>由布院散策（不開車）<span class="tag tag-maple">賞楓</span> <span class="tag tag-kid">遛小孩</span> <span class="tag tag-onsen">溫泉</span></td>
-      <td>由布院溫泉 ②</td>
-    </tr>
-    <tr>
-      <td><strong>11/22 日</strong></td>
-      <td>深耶馬溪（一目八景）→ 別府 <span class="tag tag-maple">賞楓</span> <span class="tag tag-drive">車程2h</span></td>
-      <td>別府杉乃井 ③</td>
-    </tr>
-    <tr>
-      <td><strong>11/23 一</strong></td>
-      <td>別府觀光 <span class="tag tag-kid">遛小孩</span> <span class="tag tag-onsen">溫泉</span></td>
-      <td>別府杉乃井 ④</td>
-    </tr>
-    <tr>
-      <td><strong>11/24 二</strong></td>
-      <td>回程日 <span class="tag tag-drive">車程1-2.5h</span></td>
+      <td>機上/機場</td>
+      <td>川端商店街</td>
       <td>—</td>
+    </tr>
+    <tr>
+      <td><strong>Day2</strong><br>11/19 四</td>
+      <td>雷山→秋月→由布院 <span class="tag tag-maple">賞楓</span> <span class="tag tag-drive">車程</span></td>
+      <td>由布院①</td>
+      <td class="lunch-warn">🔴 秋月蕎麥麵<br>12:00前吃！</td>
+      <td>旅館晚餐</td>
+      <td>備飯糰以防</td>
+    </tr>
+    <tr>
+      <td><strong>Day3</strong><br>11/20 五</td>
+      <td>金鱗湖・宇奈岐日女神社・湯の坪 <span class="tag tag-onsen">溫泉</span></td>
+      <td>由布院②</td>
+      <td>湯の坪街道</td>
+      <td>旅館晚餐</td>
+      <td>B-speak 9:30排</td>
+    </tr>
+    <tr>
+      <td><strong>Day4</strong><br>11/21 六</td>
+      <td>耶馬溪一目八景→別府 <span class="tag tag-maple">賞楓</span> <span class="tag tag-drive">車程</span></td>
+      <td>杉乃井①</td>
+      <td class="lunch-warn">🔴 沒餐廳！<br>買便當上路</td>
+      <td>杉乃井自助餐</td>
+      <td>投票:夜楓?</td>
+    </tr>
+    <tr>
+      <td><strong>Day5</strong><br>11/22 日</td>
+      <td>別府觀光/飯店放鬆 <span class="tag tag-kid">遛小孩</span> <span class="tag tag-onsen">溫泉</span></td>
+      <td>杉乃井②</td>
+      <td>鐵輪午餐</td>
+      <td>杉乃井自助餐</td>
+      <td>投票:跑多少</td>
+    </tr>
+    <tr>
+      <td><strong>Day6</strong><br>11/23 一</td>
+      <td>別府→（九年庵?）→福岡購物 <span class="tag tag-shop">購物</span></td>
+      <td>福岡市區</td>
+      <td>路上/福岡</td>
+      <td>もつ鍋/水炊き</td>
+      <td>投票:九年庵</td>
+    </tr>
+    <tr>
+      <td><strong>Day7</strong><br>11/24 二</td>
+      <td>博多土產→機場拉麵街→回家 <span class="tag tag-drive">車程</span></td>
+      <td>—</td>
+      <td>機場拉麵街</td>
+      <td>—</td>
+      <td>還車加油</td>
     </tr>
   </table>
 </div>
 
-<div class="card">
-  <h2 style="font-size:1.05em;color:#8B4513;margin-bottom:12px;">每日移動路線</h2>
-  <div class="route-item"><span class="route-day">Day 1</span><div class="route-desc"><span class="place">福岡機場 → 福岡市區</span><br><span class="time">取車即到，不用跑遠</span></div></div>
-  <div class="route-item"><span class="route-day">Day 2</span><div class="route-desc"><span class="place">福岡 ↔ 鳥栖 Outlets</span><br><span class="time">來回各 40 分鐘，當天回福岡</span></div></div>
-  <div class="route-item"><span class="route-day">Day 3</span><div class="route-desc"><span class="place">福岡 → 雷山 → 秋月 → 由布院</span><br><span class="time">分段開 40min + 40min + 1.5h（含停留整天）</span></div></div>
-  <div class="route-item"><span class="route-day">Day 4</span><div class="route-desc"><span class="place">由布院散策</span><br><span class="time">不開車！走路逛街泡湯一整天</span></div></div>
-  <div class="route-item"><span class="route-day">Day 5</span><div class="route-desc"><span class="place">由布院 → 深耶馬溪 → 別府</span><br><span class="time">1h + 1h = 總計 2h</span></div></div>
-  <div class="route-item"><span class="route-day">Day 6</span><div class="route-desc"><span class="place">別府市區內</span><br><span class="time">各景點之間都在 15-20 分鐘內</span></div></div>
-  <div class="route-item"><span class="route-day">Day 7</span><div class="route-desc"><span class="place">別府 →（九年庵）→ 福岡機場</span><br><span class="time">直回 2h ｜ 繞九年庵 1.5h + 1h</span></div></div>
+<!-- ======================== PART 4: DAILY DETAILS ======================== -->
+<div class="section-title" id="overview">每日詳情<span>點擊展開看時間軸、用餐、注意事項</span></div>
+
+<!-- Day 1 -->
+<div class="day-card">
+  <div class="day-header" onclick="toggleDay(this)">
+    <div style="display:flex;align-items:center;">
+      <span class="day-badge">Day 1</span>
+      <h3>11/18 (三) 抵達福岡＋麵包超人博物館</h3>
+    </div>
+    <span class="arrow">▶</span>
+  </div>
+  <div class="day-body">
+    <div class="tl">
+      <div class="tl-item"><span class="tl-time">12:00-14:00</span> 抵達福岡機場 → 取車、安裝兒童座椅<div class="tl-note">租車公司機場接送，約 30 分鐘完成手續</div></div>
+      <div class="tl-item"><span class="tl-time">14:30-17:00</span> 麵包超人博物館 <span class="tag tag-kid">遛小孩</span><div class="tl-note">博多リバレイン 5-6F，門票 ¥1,800/人（1歲以上），快三歲正好目標年齡</div></div>
+      <div class="tl-item"><span class="tl-time">17:00-19:00</span> 川端商店街晚餐<div class="tl-note">步行可達，博多拉麵、烏龍麵、屋台都有</div></div>
+    </div>
+    <div class="day-tips">
+      <strong>用餐：</strong>午餐機上或機場解決，晚餐川端商店街隨意吃<br>
+      <strong>住宿：</strong>福岡市區飯店
+    </div>
+  </div>
 </div>
 
-<!-- ======================== PART 3: VOTE ======================== -->
-<div class="section-title" id="vote">需要大家決定的事<span>看完地圖和行程後，回覆「Q1-A, Q2-B...」投票</span></div>
+<!-- Day 2 -->
+<div class="day-card">
+  <div class="day-header" onclick="toggleDay(this)">
+    <div style="display:flex;align-items:center;">
+      <span class="day-badge" style="background:#C0392B">Day 2</span>
+      <h3>11/19 (四) 賞楓日 → 移動到由布院</h3>
+    </div>
+    <span class="arrow">▶</span>
+  </div>
+  <div class="day-body">
+    <div class="tl">
+      <div class="tl-item"><span class="tl-time">08:00</span> 退房出發<div class="tl-note">出發前在便利商店買飯糰備用！秋月午餐有風險</div></div>
+      <div class="tl-item"><span class="tl-time">08:40-09:40</span> 雷山千如寺 <span class="tag tag-maple">賞楓</span><div class="tl-note">400年大楓樹，九州屈指的賞楓名所。入山料 ¥400</div></div>
+      <div class="tl-item"><span class="tl-time">09:40-10:20</span> 開車到秋月 <span class="tag tag-drive">車程</span><div class="tl-note">40 分鐘車程</div></div>
+      <div class="tl-item"><span class="tl-time">10:20-12:00</span> 秋月城跡 <span class="tag tag-maple">賞楓</span><div class="tl-note">筑前小京都，黑門紅葉是經典畫面</div></div>
+      <div class="tl-item"><span class="tl-time">12:00</span> <strong style="color:#C0392B">🔴 午餐：秋月蕎麥麵（務必 12:00 前吃！）</strong><div class="tl-note">秋月的蕎麥麵店很早打烊，12點後可能沒得吃。備案：吃便利商店飯糰</div></div>
+      <div class="tl-item"><span class="tl-time">13:00-15:00</span> 開車到由布院 <span class="tag tag-drive">車程</span><div class="tl-note">約 1.5 小時，走大分自動車道</div></div>
+      <div class="tl-item"><span class="tl-time">15:00</span> Check-in 由布院溫泉旅館<div class="tl-note">放行李、泡湯、享受旅館晚餐</div></div>
+    </div>
+    <div class="day-tips">
+      <strong>用餐：</strong>🔴 午餐高風險日！秋月蕎麥麵 12:00 前吃，或吃飯糰。晚餐旅館內<br>
+      <strong>注意：</strong>雷山千如寺假日可能停車場塞車，建議早到
+    </div>
+  </div>
+</div>
+
+<!-- Day 3 -->
+<div class="day-card">
+  <div class="day-header" onclick="toggleDay(this)">
+    <div style="display:flex;align-items:center;">
+      <span class="day-badge" style="background:#2980B9">Day 3</span>
+      <h3>11/20 (五) 由布院散策＋宇奈岐日女神社</h3>
+    </div>
+    <span class="arrow">▶</span>
+  </div>
+  <div class="day-body">
+    <div class="tl">
+      <div class="tl-item"><span class="tl-time">自然醒</span> 旅館早餐、享受晨間溫泉</div>
+      <div class="tl-item"><span class="tl-time">09:30</span> 金鱗湖散步 <span class="tag tag-maple">賞楓</span><div class="tl-note">清晨有霧氣很美，但帶小孩不用太早</div></div>
+      <div class="tl-item"><span class="tl-time">09:30</span> <strong>B-speak 蛋糕捲 — 派一人去排隊！</strong><div class="tl-note">超人氣瑞士捲，通常 10:00 開賣前就排完。一人排隊一人帶小孩逛金鱗湖</div></div>
+      <div class="tl-item"><span class="tl-time">11:00</span> 宇奈岐日女神社 <span class="tag tag-maple">賞楓</span><div class="tl-note">靖婷姨姨指定！巨木參道很有氣勢</div></div>
+      <div class="tl-item"><span class="tl-time">11:30-13:00</span> 湯の坪街道午餐＋逛街<div class="tl-note">由布院主街道，各種小吃、甜點、雜貨</div></div>
+      <div class="tl-item"><span class="tl-time">13:00-16:00</span> 自由活動：逛街/花卉村/泡足湯</div>
+      <div class="tl-item"><span class="tl-time">16:00</span> 回旅館泡湯 <span class="tag tag-onsen">溫泉</span></div>
+    </div>
+    <div class="day-tips">
+      <strong>用餐：</strong>🟢 輕鬆日！湯の坪街道一路吃。晚餐旅館內<br>
+      <strong>重點任務：</strong>B-speak 蛋糕捲 09:30 派人排隊（不排會後悔的那種）
+    </div>
+  </div>
+</div>
+
+<!-- Day 4 -->
+<div class="day-card">
+  <div class="day-header" onclick="toggleDay(this)">
+    <div style="display:flex;align-items:center;">
+      <span class="day-badge" style="background:#C0392B">Day 4</span>
+      <h3>11/21 (六) 耶馬溪一目八景 → 別府</h3>
+    </div>
+    <span class="arrow">▶</span>
+  </div>
+  <div class="day-body">
+    <div class="tl">
+      <div class="tl-item"><span class="tl-time">09:00</span> 退房出發<div class="tl-note">🔴 先在由布院便利商店買便當！耶馬溪沿途沒餐廳</div></div>
+      <div class="tl-item"><span class="tl-time">10:00-12:00</span> 一目八景展望台 <span class="tag tag-maple">賞楓</span><div class="tl-note">深耶馬溪代表景點，一眼可見八個奇岩。步道約 30-60 分鐘</div></div>
+      <div class="tl-item"><span class="tl-time">12:00</span> <strong style="color:#C0392B">🔴 午餐：吃出發前買的便當</strong><div class="tl-note">耶馬溪周圍幾乎沒有餐廳！務必提前準備</div></div>
+    </div>
+    <div style="background:#FFF0F0;border-radius:8px;padding:14px;margin:12px 0;font-size:0.88em;">
+      <strong style="color:#C0392B;">⚡ 待投票！</strong><br>
+      <strong>方案 A：等夜楓</strong> — 溪石園等 17:00 點燈，看水面「逆さ紅葉」→ 約 19:00 到杉乃井<br>
+      <strong>方案 B：不等，早到杉乃井</strong> — 白天看完就走 → 約 14:30 到杉乃井，整個下午泡湯
+    </div>
+    <div class="day-tips">
+      <strong>用餐：</strong>🔴 高風險日！午餐靠便當。晚餐杉乃井自助餐<br>
+      <strong>注意：</strong>耶馬溪到別府約 1 小時車程
+    </div>
+  </div>
+</div>
+
+<!-- Day 5 -->
+<div class="day-card">
+  <div class="day-header" onclick="toggleDay(this)">
+    <div style="display:flex;align-items:center;">
+      <span class="day-badge" style="background:#2980B9">Day 5</span>
+      <h3>11/22 (日) 別府觀光/飯店放鬆</h3>
+    </div>
+    <span class="arrow">▶</span>
+  </div>
+  <div class="day-body">
+    <div style="background:#FFF0F0;border-radius:8px;padding:14px;margin:0 0 12px;font-size:0.88em;">
+      <strong style="color:#C0392B;">⚡ 待投票！折衷建議：</strong>
+    </div>
+    <div class="tl">
+      <div class="tl-item"><span class="tl-time">09:00-10:30</span> 地獄巡禮（挑 2 個）<span class="tag tag-kid">遛小孩</span><div class="tl-note">推薦：海地獄（藍色超美）＋かまど地獄（各種顏色＋可體驗足蒸）</div></div>
+      <div class="tl-item"><span class="tl-time">11:00-12:00</span> 鐵輪午餐<div class="tl-note">地獄蒸布丁必吃！（地獄蒸し工房假日排 2-3 小時，不建議硬等，買布丁就好）</div></div>
+      <div class="tl-item"><span class="tl-time">12:30-14:30</span> うみたまご水族館 <span class="tag tag-kid">遛小孩</span><div class="tl-note">觸摸池＋海豚秀，小孩最愛。旁邊高崎山有野生猴群（可順便）</div></div>
+      <div class="tl-item"><span class="tl-time">15:00</span> 回杉乃井 <span class="tag tag-onsen">溫泉</span><div class="tl-note">棚湯看夕陽、水著區讓小孩放電、BOWL & PARK</div></div>
+    </div>
+    <div class="day-tips">
+      <strong>用餐：</strong>🟢 鐵輪午餐選擇多。晚餐杉乃井自助餐<br>
+      <strong>注意：</strong>地獄蒸し工房假日排 2-3 小時，改買地獄蒸布丁就好
+    </div>
+  </div>
+</div>
+
+<!-- Day 6 -->
+<div class="day-card">
+  <div class="day-header" onclick="toggleDay(this)">
+    <div style="display:flex;align-items:center;">
+      <span class="day-badge" style="background:#27AE60">Day 6</span>
+      <h3>11/23 (一) 別府→（九年庵?）→福岡購物</h3>
+    </div>
+    <span class="arrow">▶</span>
+  </div>
+  <div class="day-body">
+    <div style="background:#FFF0F0;border-radius:8px;padding:14px;margin:0 0 12px;font-size:0.88em;">
+      <strong style="color:#C0392B;">⚡ 待投票！</strong><br>
+      <strong>去九年庵：</strong>09:00 出發 → 10:30 九年庵（1hr）→ 14:00 到福岡，購物約 5 小時<br>
+      <strong>不去九年庵：</strong>09:00 出發 → 12:00 到福岡，購物約 7 小時
+    </div>
+    <div class="tl">
+      <div class="tl-item"><span class="tl-time">到達福岡後</span> 天神地下街 / 博多車站 / Mont-bell 天神店 <span class="tag tag-shop">購物</span></div>
+      <div class="tl-item"><span class="tl-time">分頭選項</span> 靖婷可去櫛田神社＋住吉神社（博多總鎮守，步行圈內）</div>
+      <div class="tl-item"><span class="tl-time">晚餐</span> 最後一晚！もつ鍋 或 水炊き<div class="tl-note">建議訂包廂，帶小孩比較方便</div></div>
+    </div>
+    <div class="day-tips">
+      <strong>用餐：</strong>🟢 福岡吃不完。晚餐重頭戲もつ鍋/水炊き，提前訂位<br>
+      <strong>購物重點：</strong>天神地下街（日系品牌）、博多阪急（伴手禮）、Mont-bell（戶外裝備）
+    </div>
+  </div>
+</div>
+
+<!-- Day 7 -->
+<div class="day-card">
+  <div class="day-header" onclick="toggleDay(this)">
+    <div style="display:flex;align-items:center;">
+      <span class="day-badge" style="background:#7F8C8D">Day 7</span>
+      <h3>11/24 (二) 最後逛逛 → 機場回家</h3>
+    </div>
+    <span class="arrow">▶</span>
+  </div>
+  <div class="day-body">
+    <div class="tl">
+      <div class="tl-item"><span class="tl-time">上午</span> 博多車站買土產<div class="tl-note">博多通りもん、めんべい、辛子明太子</div></div>
+      <div class="tl-item"><span class="tl-time">中午前</span> 前往機場、還車加油<div class="tl-note">租車公司會接駁到航廈</div></div>
+      <div class="tl-item"><span class="tl-time">機場</span> 拉麵滑走路（國內航廈 3F）<div class="tl-note">最後一碗九州拉麵！即使國際線也值得過去吃</div></div>
+    </div>
+    <div class="day-tips">
+      <strong>用餐：</strong>🟢 機場拉麵街收尾<br>
+      <strong>注意：</strong>還車前加滿油！機場附近有加油站
+    </div>
+  </div>
+</div>
+
+<!-- ======================== PART 5: VOTE ======================== -->
+<div class="section-title" id="vote">投票決策<span>5 題選一選，回覆「Q1-B, Q2-B, Q3-A...」即可</span></div>
 
 <div class="note">
-  <strong>投票方式：</strong>每題選你偏好的選項，截圖或直接在群組回覆題號＋選項英文字母即可（例如「Q1-B, Q2-A, Q3-C...」）。不在意就回「隨便」也 OK！
+  <strong>投票方式：</strong>每題選你偏好的選項，直接在群組回覆題號＋選項即可（例如「Q1-B, Q2-B, Q3-A, Q4-A, Q5-虹館」）。不在意就回「隨便」也 OK！
 </div>
 
 <!-- Q1 -->
 <div class="decision">
   <div class="decision-header">
-    <div class="day">Q1 — 11/18 (三) 抵達日下午</div>
-    <h3>到福岡的第一個半天怎麼用？</h3>
-    <div class="context">假設下午 2-3 點左右到飯店，可用時間約 4-5 小時</div>
+    <div class="qnum">Q1 — Day4 耶馬溪</div>
+    <h3>耶馬溪夜楓要不要等？</h3>
+    <div class="context">夜楓點燈 17:00-21:00 免費。等的話到杉乃井約 19:00，不等約 14:30 到。</div>
   </div>
   <div class="options">
+    <div class="option">
+      <div class="label"><span class="vote-box" onclick="this.classList.toggle('checked')"></span>A — 等夜楓</div>
+      <div class="desc">白天一目八景＋傍晚等溪石園點燈，看水面倒映「逆さ紅葉」後開去別府。</div>
+      <div class="pros">+ 白天＋夜楓都看到，免費隱藏版名所</div>
+      <div class="cons">- 到杉乃井較晚，當天飯店享受時間短</div>
+    </div>
     <div class="option recommended">
-      <div class="label"><span class="vote-box"></span>A — 麵包超人博物館 <span class="rec">推薦</span></div>
-      <div class="desc">博多リバレイン 5-6F，地鐵中洲川端站直結。快三歲正好是目標年齡，約 2-3 小時可逛完，結束後順便逛川端商店街吃晚餐。</div>
-      <div class="pros">+ 小孩不用忍耐第一天，一到就有得玩</div>
-      <div class="cons">- 入場費偏高（約 ¥1,800/人，1歲以上都要買票）</div>
-    </div>
-    <div class="option">
-      <div class="label"><span class="vote-box"></span>B — 博多車站周邊隨意逛</div>
-      <div class="desc">博多車站本身就是大型商場（AMU PLAZA + KITTE），樓上有展望台。隨興逛逛買買，晚上去中洲屋台吃宵夜。</div>
-      <div class="pros">+ 最輕鬆、零壓力，適合長途飛機後調整</div>
-      <div class="cons">- 比較沒有「旅行開始了！」的感覺</div>
-    </div>
-    <div class="option">
-      <div class="label"><span class="vote-box"></span>C — 福岡市動植物園</div>
-      <div class="desc">博多搭巴士 20 分鐘，大人 ¥600、小孩免費。有紅葉＋動物園一次滿足，但園區坡道多，帶推車稍累。</div>
-      <div class="pros">+ 便宜又有楓葉＋動物，CP值高</div>
-      <div class="cons">- 長途飛行後爬坡走一圈可能偏累</div>
+      <div class="label"><span class="vote-box" onclick="this.classList.toggle('checked')"></span>B — 不等，早到杉乃井 <span class="rec">⭐ 建議</span></div>
+      <div class="desc">白天看完就走，下午 check-in 杉乃井，整個傍晚泡棚湯看夕陽、小孩玩水著區。</div>
+      <div class="pros">+ 充分享受杉乃井設施，小孩水著區放電</div>
+      <div class="cons">- 放棄免費夜楓</div>
     </div>
   </div>
 </div>
@@ -310,28 +640,28 @@
 <!-- Q2 -->
 <div class="decision">
   <div class="decision-header">
-    <div class="day">Q2 — 11/19 (四) 購物日</div>
-    <h3>整天購物要怎麼分配？</h3>
-    <div class="context">這天是純福岡日，不拉車去外地。停車預算約 ¥1,500-2,000/天</div>
+    <div class="qnum">Q2 — Day5 別府日</div>
+    <h3>別府景點怎麼取捨？</h3>
+    <div class="context">所有景點都在 15-20 分鐘車程內，但全跑完帶小孩不現實。</div>
   </div>
   <div class="options">
+    <div class="option">
+      <div class="label"><span class="vote-box" onclick="this.classList.toggle('checked')"></span>A — 跑滿：地獄＋水族館＋高崎山</div>
+      <div class="desc">上午地獄巡禮 2-3 個＋中午鐵輪午餐＋下午水族館＋高崎山。</div>
+      <div class="pros">+ 景點全制霸</div>
+      <div class="cons">- 一天四個點帶小孩很累</div>
+    </div>
     <div class="option recommended">
-      <div class="label"><span class="vote-box"></span>A — 鳥栖 Outlets 半天＋天神/博多半天 <span class="rec">推薦</span></div>
-      <div class="desc">上午開車去鳥栖 Premium Outlets（約 40 分鐘，免費停車，170 間店），下午回天神地下街＋博多阪急收尾。</div>
-      <div class="pros">+ Outlet 折扣品牌＋市區日系品牌兩邊都逛到</div>
-      <div class="cons">- 需要一點時間管理，鳥栖太好逛可能回不來</div>
+      <div class="label"><span class="vote-box" onclick="this.classList.toggle('checked')"></span>B — 折衷：地獄 2 個＋水族館 <span class="rec">⭐ 建議</span></div>
+      <div class="desc">上午地獄巡禮 2 個 → 鐵輪午餐 → 下午水族館 → 15:00 回杉乃井泡湯。</div>
+      <div class="pros">+ 大人小孩都開心，不會太累</div>
+      <div class="cons">- 放棄高崎山（野生猴子）</div>
     </div>
     <div class="option">
-      <div class="label"><span class="vote-box"></span>B — 全天福岡市區</div>
-      <div class="desc">天神（大丸、PARCO、地下街）→ 博多（阪急、AMU PLAZA）→ Canal City。不拉車，地鐵移動最輕鬆。</div>
-      <div class="pros">+ 完全不用開車，可以邊走邊逛最悠閒</div>
-      <div class="cons">- 少了 Outlet 折扣品牌的選擇</div>
-    </div>
-    <div class="option">
-      <div class="label"><span class="vote-box"></span>C — マリノアシティ福岡（Marinoa City）</div>
-      <div class="desc">福岡市內的 Outlet 商場，規模比鳥栖小但有海景觀覽車，小孩可以玩。開車約 25 分鐘。</div>
-      <div class="pros">+ 購物＋觀覽車小孩有事做，不用跑太遠</div>
-      <div class="cons">- 品牌數量比鳥栖少</div>
+      <div class="label"><span class="vote-box" onclick="this.classList.toggle('checked')"></span>C — 飯店日：半天觀光＋半天杉乃井</div>
+      <div class="desc">上午只去地獄巡禮＋午餐，下午整個泡在杉乃井：棚湯、水著區、BOWL & PARK。</div>
+      <div class="pros">+ 最不趕，杉乃井設施超放電</div>
+      <div class="cons">- 水族館就不去了</div>
     </div>
   </div>
 </div>
@@ -339,28 +669,22 @@
 <!-- Q3 -->
 <div class="decision">
   <div class="decision-header">
-    <div class="day">Q3 — 11/20 (五) 賞楓日</div>
-    <h3>從福岡到由布院的路上，賞楓景點怎麼選？</h3>
-    <div class="context">福岡→由布院直開約 2 小時。中間塞景點會拉長到 2.5-3 小時（含停留），需要取捨。</div>
+    <div class="qnum">Q3 — Day6 九年庵</div>
+    <h3>回程要不要繞去九年庵？</h3>
+    <div class="context">九年庵一年只開放 16 天（11/15-30），國家名勝。繞過去多花約 1.5 小時。</div>
   </div>
   <div class="options">
-    <div class="option recommended">
-      <div class="label"><span class="vote-box"></span>A — 雷山千如寺＋秋月城跡 兩個都去 <span class="rec">推薦</span></div>
-      <div class="desc">上午先去雷山千如寺看 400 年大楓（約 1 小時），再開 40 分鐘到秋月城跡看黑門紅葉（約 1 小時），下午從秋月開 1.5 小時到由布院。</div>
-      <div class="pros">+ 兩個都是九州頂級賞楓名所，11月下旬楓況最佳</div>
-      <div class="cons">- 當天比較趕，到由布院大概傍晚</div>
+    <div class="option">
+      <div class="label"><span class="vote-box" onclick="this.classList.toggle('checked')"></span>A — 去九年庵（購物約 5 小時）</div>
+      <div class="desc">別府→九年庵（1.5h）→ 逛 1hr → 福岡（1h），約 14:00 到天神開始購物。</div>
+      <div class="pros">+ 一年 16 天限定，苔庭配紅葉極美</div>
+      <div class="cons">- 購物時間壓縮到 5 小時</div>
     </div>
     <div class="option">
-      <div class="label"><span class="vote-box"></span>B — 只去雷山千如寺，下午早到由布院</div>
-      <div class="desc">上午去雷山千如寺，看完直開由布院（約 2 小時），下午 2-3 點就到，還有時間散步金鱗湖。</div>
-      <div class="pros">+ 不趕時間，下午悠閒享受由布院</div>
-      <div class="cons">- 放棄秋月（筑前小京都），有點可惜</div>
-    </div>
-    <div class="option">
-      <div class="label"><span class="vote-box"></span>C — 走佐賀方向：九年庵＋由布院</div>
-      <div class="desc">改走佐賀路線。上午去九年庵（國家名勝，一年只開放 16 天，11/15-30），下午開到由布院（約 2.5 小時）。雷山跟秋月留給最後一天回程。</div>
-      <div class="pros">+ 九年庵是超限定景點，錯過要等一整年</div>
-      <div class="cons">- 最後一天能不能補雷山或秋月要看班機時間</div>
+      <div class="label"><span class="vote-box" onclick="this.classList.toggle('checked')"></span>B — 不去，直衝福岡（購物約 7 小時）</div>
+      <div class="desc">別府直開福岡（2h），約 12:00 到，整個下午＋傍晚都在購物。</div>
+      <div class="pros">+ 購物時間充裕，不趕</div>
+      <div class="cons">- 放棄限定景點</div>
     </div>
   </div>
 </div>
@@ -368,22 +692,22 @@
 <!-- Q4 -->
 <div class="decision">
   <div class="decision-header">
-    <div class="day">Q4 — 11/22 (日) 耶馬溪</div>
-    <h3>耶馬溪夜楓要不要等？</h3>
-    <div class="context">夜楓點燈 17:00-21:00 免費。等的話到杉乃井約 19:00-20:00，不等的話下午 3-4 點就到飯店。</div>
+    <div class="qnum">Q4 — Day6 購物分頭</div>
+    <h3>福岡購物要分頭行動嗎？</h3>
+    <div class="context">靖婷想去神社，其他人想逛街。天神和博多都在地鐵一站距離內。</div>
   </div>
   <div class="options">
-    <div class="option recommended">
-      <div class="label"><span class="vote-box"></span>A — 白天一目八景＋傍晚等夜楓 <span class="rec">推薦</span></div>
-      <div class="desc">先看白天壯闊峽谷楓景，下午到溪石園等 17:00 點燈，看水面倒映的「逆さ紅葉」後開去別府。</div>
-      <div class="pros">+ 白天＋夜楓都看到，免費的隱藏版名所</div>
-      <div class="cons">- 到杉乃井比較晚，當天能享受飯店時間較短</div>
+    <div class="option">
+      <div class="label"><span class="vote-box" onclick="this.classList.toggle('checked')"></span>A — 全員一起行動</div>
+      <div class="desc">一起逛天神→博多，中間穿插櫛田神社（就在商圈旁邊）。</div>
+      <div class="pros">+ 不走散，行程好協調</div>
+      <div class="cons">- 逛街＋神社節奏可能不合</div>
     </div>
     <div class="option">
-      <div class="label"><span class="vote-box"></span>B — 只看白天，下午早到別府</div>
-      <div class="desc">上午看完一目八景就出發，下午 3-4 點 check-in 杉乃井，整個傍晚泡棚湯看夕陽、小孩玩水著溫泉區。</div>
-      <div class="pros">+ 充分享受杉乃井設施，小孩可以在水著區玩很久</div>
-      <div class="cons">- 放棄免費夜楓</div>
+      <div class="label"><span class="vote-box" onclick="this.classList.toggle('checked')"></span>B — 分頭：購物組 vs 神社組</div>
+      <div class="desc">靖婷帶想去的人走櫛田神社＋住吉神社路線，其他人專心購物，傍晚集合吃晚餐。</div>
+      <div class="pros">+ 各取所需，效率最高</div>
+      <div class="cons">- 要約好集合時間地點</div>
     </div>
   </div>
 </div>
@@ -391,96 +715,164 @@
 <!-- Q5 -->
 <div class="decision">
   <div class="decision-header">
-    <div class="day">Q5 — 11/23 (一) 別府日</div>
-    <h3>別府景點太多，怎麼取捨？</h3>
-    <div class="context">以下景點都在別府市區 15-20 分鐘車程內，但全跑完帶小孩不現實。</div>
+    <div class="qnum">Q5 — 杉乃井飯店館別</div>
+    <h3>杉乃井住哪個館？</h3>
+    <div class="context">杉乃井有三個館，棚湯和水著區所有館共用。差別在房間新舊和景觀。</div>
   </div>
   <div class="options">
     <div class="option recommended">
-      <div class="label"><span class="vote-box"></span>A — 地獄巡禮＋うみたまご水族館 <span class="rec">推薦</span></div>
-      <div class="desc">上午挑 2-3 個地獄看（海地獄＋鬼石坊主＋かまど地獄），中午鐵輪地獄蒸し午餐，下午うみたまご水族館（觸摸池＋海豚秀），傍晚回杉乃井泡湯。</div>
-      <div class="pros">+ 大人看奇景＋小孩玩水族館，皆大歡喜</div>
-      <div class="cons">- 放棄高崎山（野生猴子）</div>
+      <div class="label"><span class="vote-box" onclick="this.classList.toggle('checked')"></span>虹館 <span class="rec">⭐ CP值</span></div>
+      <div class="desc">¥15,000-25,000/人/晚。最老但有閣樓房型（小孩超愛爬上爬下），離棚湯最近。</div>
+      <div class="pros">+ 價格最親民，閣樓房獨特體驗</div>
+      <div class="cons">- 設施較舊</div>
     </div>
     <div class="option">
-      <div class="label"><span class="vote-box"></span>B — 地獄巡禮＋高崎山＋うみたまご</div>
-      <div class="desc">跟 A 一樣但多加高崎山（うみたまご對面走 5 分鐘，約 1 小時看野生猴群）。</div>
-      <div class="pros">+ 高崎山就在隔壁，多走 5 分鐘而已</div>
-      <div class="cons">- 一天跑四個點帶小孩會比較累</div>
+      <div class="label"><span class="vote-box" onclick="this.classList.toggle('checked')"></span>星館</div>
+      <div class="desc">¥25,000-40,000/人/晚。2024 年新開，房間現代設計，有些房型可看海。</div>
+      <div class="pros">+ 房間新穎舒適</div>
+      <div class="cons">- 價格中高</div>
     </div>
     <div class="option">
-      <div class="label"><span class="vote-box"></span>C — 半天觀光＋半天泡杉乃井</div>
-      <div class="desc">上午只去地獄巡禮＋地獄蒸し午餐，下午整個待在杉乃井飯店：棚湯、水著區、BOWL & PARK。</div>
-      <div class="pros">+ 最不趕，杉乃井設施玩一整天不膩，小孩超放電</div>
-      <div class="cons">- 水族館就不去了</div>
+      <div class="label"><span class="vote-box" onclick="this.classList.toggle('checked')"></span>宙館</div>
+      <div class="desc">¥40,000-60,000/人/晚。最高級，全房海景，專屬 lounge。</div>
+      <div class="pros">+ 頂級體驗，景觀無敵</div>
+      <div class="cons">- 預算直接翻倍</div>
     </div>
   </div>
 </div>
 
-<!-- Q6 -->
-<div class="decision">
-  <div class="decision-header">
-    <div class="day">Q6 — 11/24 (二) 最後一天</div>
-    <h3>回程那天還要塞景點嗎？</h3>
-    <div class="context">別府→福岡機場約 2-2.5 小時直開。班機下午以後才能繞路。</div>
+<!-- ======================== PART 6: HOTEL ======================== -->
+<div class="section-title" id="hotel">住宿推薦<span>由布院溫泉旅館 ＋ 杉乃井三館比較 ＋ 福岡飯店</span></div>
+
+<h3 style="color:#8B4513;font-size:0.95em;margin-bottom:12px;">由布院溫泉旅館（2 晚）</h3>
+<div class="hotel-grid">
+  <div class="hotel-card">
+    <h4>牧場の家</h4>
+    <div class="price">¥30,000-45,000 /人/晚</div>
+    <div class="hotel-desc">獨棟茅葺屋，由布院最有代表性的溫泉旅館之一。有家族湯（貸切風呂），可以一家人一起泡。</div>
+    <div class="hotel-highlight">★ 獨棟茅葺屋體驗、家族湯</div>
   </div>
-  <div class="options">
-    <div class="option">
-      <div class="label"><span class="vote-box"></span>A — 直接回機場，不繞路</div>
-      <div class="desc">睡到自然醒，退房後直開高速回福岡機場還車。</div>
-      <div class="pros">+ 最輕鬆，最後一天不趕</div>
-      <div class="cons">- 半天都在開車有點浪費</div>
-    </div>
-    <div class="option recommended">
-      <div class="label"><span class="vote-box"></span>B — 繞去九年庵（佐賀）<span class="rec">推薦（如 Q3 沒選 C）</span></div>
-      <div class="desc">別府出發約 1.5 小時到九年庵（國家名勝，限定開放），逛 1-1.5 小時，再 1 小時到機場。需下午 2 點後班機。</div>
-      <div class="pros">+ 一年只開 16 天的國寶級庭園，苔庭配紅葉極美</div>
-      <div class="cons">- 最後一天仍要跑景點</div>
-    </div>
-    <div class="option">
-      <div class="label"><span class="vote-box"></span>C — 繞去秋月城跡（福岡縣）</div>
-      <div class="desc">走高速到朝倉 IC 下來（別府出發約 2 小時），黑門紅葉，逛 1 小時，再 50 分鐘到機場。適合 Q3 沒選秋月的情況。</div>
-      <div class="pros">+ 回程順路不太繞，黑門配楓葉經典畫面</div>
-      <div class="cons">- 如果 Q3 已去過就不用來</div>
-    </div>
+  <div class="hotel-card">
+    <h4>やどや</h4>
+    <div class="price">¥20,000-30,000 /人/晚</div>
+    <div class="hotel-desc">3 種貸切風呂（竹林露天、岩風呂、檜木），CP 值最高的由布院溫泉旅館。</div>
+    <div class="hotel-highlight">★ CP 值王、3 種貸切風呂</div>
+  </div>
+  <div class="hotel-card">
+    <h4>由布乃庄</h4>
+    <div class="price">¥25,000-35,000 /人/晚</div>
+    <div class="hotel-desc">料理評價極高，由布院在地食材懷石料理。適合重視晚餐的旅人。</div>
+    <div class="hotel-highlight">★ 料理一絕、食材講究</div>
   </div>
 </div>
 
-<!-- Q7 -->
-<div class="decision">
-  <div class="decision-header">
-    <div class="day">Q7 — 溫泉住宿</div>
-    <h3>由布院住兩晚 or 一晚＋黑川溫泉？</h3>
-    <div class="context">目前規劃 4 晚溫泉：由布院 2 晚＋別府杉乃井 2 晚。</div>
+<h3 style="color:#8B4513;font-size:0.95em;margin:20px 0 12px;">杉乃井飯店三館比較（2 晚）</h3>
+<div class="card" style="overflow-x:auto;">
+  <table class="compare-table">
+    <tr><th>項目</th><th>虹館 ⭐</th><th>星館</th><th>宙館</th></tr>
+    <tr><td>價格/人/晚</td><td>¥15k-25k</td><td>¥25k-40k</td><td>¥40k-60k</td></tr>
+    <tr><td>新舊</td><td>最舊（有味道）</td><td>2024 新開</td><td>最高級</td></tr>
+    <tr><td>特色房型</td><td>閣樓房（小孩愛）</td><td>現代設計</td><td>全海景</td></tr>
+    <tr><td>離棚湯</td><td>最近</td><td>中間</td><td>最遠</td></tr>
+    <tr><td>專屬設施</td><td>—</td><td>—</td><td>專屬 Lounge</td></tr>
+    <tr><td>適合</td><td>親子首選</td><td>平衡舒適</td><td>奢華體驗</td></tr>
+  </table>
+</div>
+
+<h3 style="color:#8B4513;font-size:0.95em;margin:20px 0 12px;">福岡飯店（Day1 + Day6，共 2 晚）</h3>
+<div class="hotel-grid">
+  <div class="hotel-card">
+    <h4>都ホテル博多</h4>
+    <div class="price">中價位</div>
+    <div class="hotel-desc">博多車站直結，樓上有溫泉大浴場＋泳池。帶小孩不用出門就能泡湯。</div>
+    <div class="hotel-highlight">★ 站直結＋溫泉泳池</div>
   </div>
-  <div class="options">
-    <div class="option recommended">
-      <div class="label"><span class="vote-box"></span>A — 由布院 2 晚（同一間）<span class="rec">推薦</span></div>
-      <div class="desc">11/20、21 兩晚都住由布院。Day 21 整天不開車，純散步泡湯。</div>
-      <div class="pros">+ 不搬行李，由布院值得慢慢逛，私人風呂泡兩次才過癮</div>
-      <div class="cons">- 兩晚同旅館花費較高（好的由布院溫泉一晚約 ¥25,000-50,000/人）</div>
+  <div class="hotel-card">
+    <h4>ROYAL PARK CANVAS 博多中洲</h4>
+    <div class="price">中價位</div>
+    <div class="hotel-desc">旁邊就是麵包超人博物館（博多リバレイン），Day1 走路就到景點。設計感新飯店。</div>
+    <div class="hotel-highlight">★ 麵包超人博物館步行可達</div>
+  </div>
+</div>
+
+<!-- ======================== PART 7: MEAL ======================== -->
+<div class="section-title" id="meal">用餐攻略<span>紅燈日要事先準備，綠燈日隨意吃</span></div>
+
+<div class="card">
+  <div class="meal-day">
+    <div class="traffic-light tl-green"></div>
+    <div class="meal-info"><strong>Day1</strong> 11/18 — 午餐機上，晚餐川端商店街隨意</div>
+  </div>
+  <div class="meal-day">
+    <div class="traffic-light tl-red"></div>
+    <div class="meal-info">
+      <strong>Day2</strong> 11/19 — <span class="meal-warn">🔴 午餐警戒！秋月蕎麥麵 12:00 前吃，遲到沒得吃</span>
+      <div style="font-size:0.9em;color:#888;margin-top:2px;">備案：出發前買飯糰。晚餐旅館內</div>
     </div>
-    <div class="option">
-      <div class="label"><span class="vote-box"></span>B — 由布院 1 晚＋黑川溫泉 1 晚＋別府 2 晚</div>
-      <div class="desc">11/20 住由布院 → 11/21 白天散策完開去黑川溫泉（約 1.5 小時）→ 11/22-23 別府。</div>
-      <div class="pros">+ 三個不同溫泉鄉，黑川的洞窟溫泉和入湯手形很有特色</div>
-      <div class="cons">- 多搬一次行李、多一段車程，黑川→耶馬溪也要 1.5 小時</div>
+  </div>
+  <div class="meal-day">
+    <div class="traffic-light tl-green"></div>
+    <div class="meal-info"><strong>Day3</strong> 11/20 — 湯の坪街道一路吃，完全不用擔心</div>
+  </div>
+  <div class="meal-day">
+    <div class="traffic-light tl-red"></div>
+    <div class="meal-info">
+      <strong>Day4</strong> 11/21 — <span class="meal-warn">🔴 午餐警戒！耶馬溪沿途沒餐廳</span>
+      <div style="font-size:0.9em;color:#888;margin-top:2px;">對策：由布院出發前在便利商店買便當。晚餐杉乃井自助餐</div>
     </div>
+  </div>
+  <div class="meal-day">
+    <div class="traffic-light tl-green"></div>
+    <div class="meal-info"><strong>Day5</strong> 11/22 — 鐵輪午餐選擇多，地獄蒸布丁必吃（工房假日排 2-3hr，買布丁就好別硬等）</div>
+  </div>
+  <div class="meal-day">
+    <div class="traffic-light tl-green"></div>
+    <div class="meal-info">
+      <strong>Day6</strong> 11/23 — 福岡吃不完。<strong style="color:#D2691E;">最後一晚重頭戲：もつ鍋或水炊き，訂包廂！</strong>
+    </div>
+  </div>
+  <div class="meal-day">
+    <div class="traffic-light tl-green"></div>
+    <div class="meal-info"><strong>Day7</strong> 11/24 — 機場拉麵街收尾</div>
   </div>
 </div>
 
 <div class="note">
-  <strong>小提醒：</strong>以上取捨不影響行程大框架，只是微調每天內容。最重要的三個核心體驗——賞楓（耶馬溪＋由布院）、溫泉飯店（由布院＋杉乃井）、購物（鳥栖/天神）——不管怎麼選都會保留。
+  <strong>用餐三大重點：</strong><br>
+  1. 秋月蕎麥麵 12:00 前吃（Day2）<br>
+  2. 耶馬溪買便當上路（Day4）<br>
+  3. 地獄蒸し工房假日排 2-3hr → 改買布丁就好（Day5）<br>
+  4. 最後一晚もつ鍋/水炊き → 提前訂包廂（Day6）
 </div>
 
-<div class="note">
-  <strong>關於班機：</strong>Q6 的選項取決於回程班機時間。下午 3 點以後的班機 B 和 C 都可以；中午前就只能選 A。建議訂機票時留意。
-</div>
-
+<!-- ======================== FOOTER ======================== -->
 <div class="footer">
-  11月姨姨賞楓團 ‧ 行程總覽 v1.0 ‧ 2026.04 製作
+  <div class="vote-fmt">
+    <strong>投票格式：</strong><br>
+    「Q1-B, Q2-B, Q3-A, Q4-A, Q5-虹館」
+  </div>
+  <br>
+  11月姨姨賞楓團 ‧ v2.0 ‧ 2026.04
+  <br><br>
+  <strong style="color:#C0392B;">預訂提醒：由布院旅館和杉乃井請儘快訂！</strong><br>
+  11月是九州賞楓旺季，好房間很快就滿了
 </div>
 
 </div>
+
+<script>
+function toggleDay(el) {
+  var body = el.nextElementSibling;
+  var isOpen = body.classList.contains('show');
+  // close all
+  document.querySelectorAll('.day-body').forEach(function(b){ b.classList.remove('show'); });
+  document.querySelectorAll('.day-header').forEach(function(h){ h.classList.remove('open'); });
+  // toggle current
+  if (!isOpen) {
+    body.classList.add('show');
+    el.classList.add('open');
+  }
+}
+</script>
 </body>
 </html>
