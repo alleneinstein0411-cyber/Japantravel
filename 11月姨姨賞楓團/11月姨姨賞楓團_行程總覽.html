@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>11月姨姨賞楓團 v2.0 — 北九州全自駕行程</title>
+<title>11月姨姨賞楓團 v2.1 — 北九州全自駕行程（已定案）</title>
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body { font-family: -apple-system, "Noto Sans TC", "Microsoft JhengHei", "PingFang TC", sans-serif; background: #f5f0eb; color: #333; line-height: 1.7; padding: 16px; }
@@ -96,6 +96,10 @@
   .option .cons { font-size: 0.8em; color: #C0392B; margin-top: 2px; }
   .vote-box { display: inline-block; width: 18px; height: 18px; border: 2px solid #ccc; border-radius: 4px; vertical-align: middle; margin-right: 6px; cursor: pointer; }
   .vote-box.checked { background: #D2691E; border-color: #D2691E; }
+  .option.decided { border-color: #27AE60; background: #F0FAF0; }
+  .option.decided .vote-box.checked { background: #27AE60; border-color: #27AE60; }
+  .option .label .decided-badge { font-size: 0.72em; background: #27AE60; color: #fff; padding: 2px 8px; border-radius: 8px; margin-left: 6px; vertical-align: middle; }
+  .header .decided-banner { display: inline-block; background: #27AE60; color: #fff; padding: 3px 14px; border-radius: 12px; font-size: 0.8em; margin-top: 10px; font-weight: 600; }
 
   /* Accommodation cards */
   .hotel-grid { display: grid; grid-template-columns: 1fr; gap: 14px; }
@@ -144,14 +148,16 @@
   <div class="subtitle">北九州全自駕 ‧ 4大1小 ‧ 賞楓 / 溫泉 / 購物 / 遛小孩</div>
   <div class="dates">2026 / 11 / 18 (三) — 11 / 24 (二) ‧ 7天6夜</div>
   <br>
-  <div class="version">v2.0</div>
+  <div class="version">v2.1</div>
+  <br>
+  <div class="decided-banner">✅ 行程已定案（投票結果）</div>
 </div>
 
 <div class="nav">
   <a href="#map">地圖</a>
   <a href="#flow">行程流程</a>
   <a href="#overview">每日詳情</a>
-  <a href="#vote">投票決策</a>
+  <a href="#vote">決議結果</a>
   <a href="#hotel">住宿</a>
   <a href="#meal">用餐</a>
 </div>
@@ -243,7 +249,7 @@
       <text x="614" y="260" font-size="10" fill="#3498DB">溫泉 2晚</text>
       <text x="614" y="273" font-size="9" fill="#888">杉乃井飯店</text>
       <rect x="596" y="290" width="8" height="8" rx="2" fill="#27AE60"/>
-      <text x="608" y="298" font-size="9" fill="#27AE60">高崎山・地獄巡禮</text>
+      <text x="608" y="298" font-size="9" fill="#27AE60">地獄巡禮・鐵輪</text>
 
       <!-- Drive times -->
       <rect x="315" y="118" width="50" height="18" rx="9" fill="#fff" stroke="#ccc" stroke-width="1"/>
@@ -328,8 +334,8 @@
     <div class="flow-node">
       <div class="flow-circle" style="background:#C0392B">Day4</div>
       <div>
-        <div class="flow-label">耶馬溪</div>
-        <div class="flow-label">一目八景</div>
+        <div class="flow-label">耶馬溪一目八景</div>
+        <div class="flow-label">＋溪石園夜楓</div>
         <div class="flow-stay">住 杉乃井①</div>
       </div>
     </div>
@@ -346,8 +352,8 @@
     <div class="flow-node">
       <div class="flow-circle" style="background:#27AE60">Day6</div>
       <div>
-        <div class="flow-label">→福岡購物</div>
-        <div class="flow-label">天神/博多</div>
+        <div class="flow-label">九年庵→福岡</div>
+        <div class="flow-label">購物(分頭)</div>
         <div class="flow-stay">住 福岡</div>
       </div>
     </div>
@@ -395,27 +401,27 @@
     </tr>
     <tr>
       <td><strong>Day4</strong><br>11/21 六</td>
-      <td>耶馬溪一目八景→別府 <span class="tag tag-maple">賞楓</span> <span class="tag tag-drive">車程</span></td>
+      <td>耶馬溪一目八景＋溪石園夜楓→別府 <span class="tag tag-maple">賞楓</span> <span class="tag tag-drive">車程</span></td>
       <td>杉乃井①</td>
       <td class="lunch-warn">🔴 沒餐廳！<br>買便當上路</td>
       <td>杉乃井自助餐</td>
-      <td>投票:夜楓?</td>
+      <td>✅ 等夜楓<br>約19:00到</td>
     </tr>
     <tr>
       <td><strong>Day5</strong><br>11/22 日</td>
-      <td>別府觀光/飯店放鬆 <span class="tag tag-kid">遛小孩</span> <span class="tag tag-onsen">溫泉</span></td>
+      <td>上午地獄巡禮→下午泡杉乃井 <span class="tag tag-kid">遛小孩</span> <span class="tag tag-onsen">溫泉</span></td>
       <td>杉乃井②</td>
       <td>鐵輪午餐</td>
       <td>杉乃井自助餐</td>
-      <td>投票:跑多少</td>
+      <td>✅ 飯店日<br>下午泡湯</td>
     </tr>
     <tr>
       <td><strong>Day6</strong><br>11/23 一</td>
-      <td>別府→（九年庵?）→福岡購物 <span class="tag tag-shop">購物</span></td>
+      <td>別府→九年庵→福岡購物（分頭） <span class="tag tag-maple">賞楓</span> <span class="tag tag-shop">購物</span></td>
       <td>福岡市區</td>
-      <td>路上/福岡</td>
+      <td>九年庵後/福岡</td>
       <td>もつ鍋/水炊き</td>
-      <td>投票:九年庵</td>
+      <td>✅ 去九年庵<br>＋分頭</td>
     </tr>
     <tr>
       <td><strong>Day7</strong><br>11/24 二</td>
@@ -510,7 +516,7 @@
   <div class="day-header" onclick="toggleDay(this)">
     <div style="display:flex;align-items:center;">
       <span class="day-badge" style="background:#C0392B">Day 4</span>
-      <h3>11/21 (六) 耶馬溪一目八景 → 別府</h3>
+      <h3>11/21 (六) 耶馬溪一目八景＋夜楓 → 別府</h3>
     </div>
     <span class="arrow">▶</span>
   </div>
@@ -519,15 +525,18 @@
       <div class="tl-item"><span class="tl-time">09:00</span> 退房出發<div class="tl-note">🔴 先在由布院便利商店買便當！耶馬溪沿途沒餐廳</div></div>
       <div class="tl-item"><span class="tl-time">10:00-12:00</span> 一目八景展望台 <span class="tag tag-maple">賞楓</span><div class="tl-note">深耶馬溪代表景點，一眼可見八個奇岩。步道約 30-60 分鐘</div></div>
       <div class="tl-item"><span class="tl-time">12:00</span> <strong style="color:#C0392B">🔴 午餐：吃出發前買的便當</strong><div class="tl-note">耶馬溪周圍幾乎沒有餐廳！務必提前準備</div></div>
+      <div class="tl-item"><span class="tl-time">13:00-16:30</span> 耶馬溪一帶悠閒散策 <span class="tag tag-maple">賞楓</span><div class="tl-note">青の洞門、羅漢寺等周邊景點，或找咖啡廳休息，等待傍晚點燈</div></div>
+      <div class="tl-item"><span class="tl-time">17:00-18:00</span> 溪石園夜楓點燈 <span class="tag tag-maple">賞楓</span><div class="tl-note">免費入園，17:00 點燈後看水面倒映「逆さ紅葉」，夜楓隱藏版名所</div></div>
+      <div class="tl-item"><span class="tl-time">18:00-19:00</span> 開車到別府 <span class="tag tag-drive">車程</span><div class="tl-note">約 1 小時</div></div>
+      <div class="tl-item"><span class="tl-time">19:00</span> Check-in 杉乃井① <span class="tag tag-onsen">溫泉</span><div class="tl-note">放行李、晚餐自助餐、泡棚湯</div></div>
     </div>
-    <div style="background:#FFF0F0;border-radius:8px;padding:14px;margin:12px 0;font-size:0.88em;">
-      <strong style="color:#C0392B;">⚡ 待投票！</strong><br>
-      <strong>方案 A：等夜楓</strong> — 溪石園等 17:00 點燈，看水面「逆さ紅葉」→ 約 19:00 到杉乃井<br>
-      <strong>方案 B：不等，早到杉乃井</strong> — 白天看完就走 → 約 14:30 到杉乃井，整個下午泡湯
+    <div style="background:#F0FAF0;border-radius:8px;padding:14px;margin:12px 0;font-size:0.88em;">
+      <strong style="color:#27AE60;">✅ 已定案（Q1）：方案 A — 等夜楓</strong><br>
+      白天一目八景，傍晚等溪石園 17:00 點燈看「逆さ紅葉」，約 19:00 到杉乃井。
     </div>
     <div class="day-tips">
-      <strong>用餐：</strong>🔴 高風險日！午餐靠便當。晚餐杉乃井自助餐<br>
-      <strong>注意：</strong>耶馬溪到別府約 1 小時車程
+      <strong>用餐：</strong>🔴 高風險日！午餐靠便當。晚餐杉乃井自助餐（約 19:00 到，建議先跟飯店確認晚餐供餐時段）<br>
+      <strong>注意：</strong>因等夜楓，到杉乃井約 19:00，當天泡湯時間較短；溪石園到別府約 1 小時車程
     </div>
   </div>
 </div>
@@ -537,23 +546,23 @@
   <div class="day-header" onclick="toggleDay(this)">
     <div style="display:flex;align-items:center;">
       <span class="day-badge" style="background:#2980B9">Day 5</span>
-      <h3>11/22 (日) 別府觀光/飯店放鬆</h3>
+      <h3>11/22 (日) 別府半日觀光＋下午泡杉乃井</h3>
     </div>
     <span class="arrow">▶</span>
   </div>
   <div class="day-body">
-    <div style="background:#FFF0F0;border-radius:8px;padding:14px;margin:0 0 12px;font-size:0.88em;">
-      <strong style="color:#C0392B;">⚡ 待投票！折衷建議：</strong>
+    <div style="background:#F0FAF0;border-radius:8px;padding:14px;margin:0 0 12px;font-size:0.88em;">
+      <strong style="color:#27AE60;">✅ 已定案（Q2）：方案 C — 飯店日</strong><br>
+      上午只跑地獄巡禮＋鐵輪午餐，下午整個泡在杉乃井（不去高崎山，以放鬆為主）。
     </div>
     <div class="tl">
-      <div class="tl-item"><span class="tl-time">09:00-10:30</span> 地獄巡禮（挑 2 個）<span class="tag tag-kid">遛小孩</span><div class="tl-note">推薦：海地獄（藍色超美）＋かまど地獄（各種顏色＋可體驗足蒸）</div></div>
-      <div class="tl-item"><span class="tl-time">11:00-12:00</span> 鐵輪午餐<div class="tl-note">地獄蒸布丁必吃！（地獄蒸し工房假日排 2-3 小時，不建議硬等，買布丁就好）</div></div>
-      <div class="tl-item"><span class="tl-time">12:30-14:30</span> 高崎山自然動物園 <span class="tag tag-kid">遛小孩</span><div class="tl-note">野生猴群，小孩超愛。就在うみたまご對面走 5 分鐘，約 1 小時</div></div>
-      <div class="tl-item"><span class="tl-time">15:00</span> 回杉乃井 <span class="tag tag-onsen">溫泉</span><div class="tl-note">棚湯看夕陽、水著區讓小孩放電、BOWL & PARK</div></div>
+      <div class="tl-item"><span class="tl-time">09:00-11:30</span> 地獄巡禮（挑 2-3 個）<span class="tag tag-kid">遛小孩</span><div class="tl-note">推薦：海地獄（藍色超美）＋かまど地獄（各種顏色＋可體驗足蒸），時間夠可再加一個</div></div>
+      <div class="tl-item"><span class="tl-time">11:30-13:00</span> 鐵輪午餐<div class="tl-note">地獄蒸布丁必吃！（地獄蒸し工房假日排 2-3 小時，不建議硬等，買布丁就好）</div></div>
+      <div class="tl-item"><span class="tl-time">13:30 起</span> 整個下午泡杉乃井 <span class="tag tag-onsen">溫泉</span><div class="tl-note">棚湯看夕陽、水著區（アクアガーデン）讓小孩放電、BOWL & PARK，徹底放鬆</div></div>
     </div>
     <div class="day-tips">
       <strong>用餐：</strong>🟢 鐵輪午餐選擇多。晚餐杉乃井自助餐<br>
-      <strong>注意：</strong>地獄蒸し工房假日排 2-3 小時，改買地獄蒸布丁就好
+      <strong>注意：</strong>地獄蒸し工房假日排 2-3 小時，改買地獄蒸布丁就好；下午留在飯店，是全程最輕鬆的一天
     </div>
   </div>
 </div>
@@ -563,24 +572,27 @@
   <div class="day-header" onclick="toggleDay(this)">
     <div style="display:flex;align-items:center;">
       <span class="day-badge" style="background:#27AE60">Day 6</span>
-      <h3>11/23 (一) 別府→（九年庵?）→福岡購物</h3>
+      <h3>11/23 (一) 別府→九年庵→福岡購物（分頭）</h3>
     </div>
     <span class="arrow">▶</span>
   </div>
   <div class="day-body">
-    <div style="background:#FFF0F0;border-radius:8px;padding:14px;margin:0 0 12px;font-size:0.88em;">
-      <strong style="color:#C0392B;">⚡ 待投票！</strong><br>
-      <strong>去九年庵：</strong>09:00 出發 → 10:30 九年庵（1hr）→ 14:00 到福岡，購物約 5 小時<br>
-      <strong>不去九年庵：</strong>09:00 出發 → 12:00 到福岡，購物約 7 小時
+    <div style="background:#F0FAF0;border-radius:8px;padding:14px;margin:0 0 12px;font-size:0.88em;">
+      <strong style="color:#27AE60;">✅ 已定案（Q3＋Q4）：去九年庵 ＋ 福岡分頭行動</strong><br>
+      09:00 出發 → 九年庵（限定名勝）→ 約 14:00 到福岡，購物約 5 小時；福岡採「購物組 vs 神社組」分頭，傍晚集合吃晚餐。
     </div>
     <div class="tl">
-      <div class="tl-item"><span class="tl-time">到達福岡後</span> 天神地下街 / 博多車站 / Mont-bell 天神店 <span class="tag tag-shop">購物</span></div>
-      <div class="tl-item"><span class="tl-time">分頭選項</span> 靖婷可去櫛田神社＋住吉神社（博多總鎮守，步行圈內）</div>
-      <div class="tl-item"><span class="tl-time">晚餐</span> 最後一晚！もつ鍋 或 水炊き<div class="tl-note">建議訂包廂，帶小孩比較方便</div></div>
+      <div class="tl-item"><span class="tl-time">09:00</span> 別府出發 → 九年庵 <span class="tag tag-drive">車程</span><div class="tl-note">約 1.5 小時車程（經佐賀）</div></div>
+      <div class="tl-item"><span class="tl-time">10:30-11:30</span> 九年庵 <span class="tag tag-maple">賞楓</span><div class="tl-note">一年僅開放 16 天（11/15-30）的國家名勝，苔庭配紅葉極美。可順遊旁邊的仁比山神社</div></div>
+      <div class="tl-item"><span class="tl-time">11:30-14:00</span> 開車到福岡 <span class="tag tag-drive">車程</span><div class="tl-note">約 1 小時，路上或抵達後午餐，約 14:00 到天神</div></div>
+      <div class="tl-item"><span class="tl-time">14:00 起 ‧ 購物組</span> 天神地下街 / 博多車站 / Mont-bell 天神店 <span class="tag tag-shop">購物</span><div class="tl-note">約 5 小時購物時間</div></div>
+      <div class="tl-item"><span class="tl-time">14:00 起 ‧ 神社組</span> 靖婷帶隊：櫛田神社＋住吉神社 <span class="tag tag-maple">賞楓</span><div class="tl-note">博多總鎮守，步行圈內。逛完到商圈與購物組會合</div></div>
+      <div class="tl-item"><span class="tl-time">晚餐 ‧ 集合</span> 最後一晚！もつ鍋 或 水炊き<div class="tl-note">建議訂包廂，帶小孩比較方便。先約好集合時間地點</div></div>
     </div>
     <div class="day-tips">
       <strong>用餐：</strong>🟢 福岡吃不完。晚餐重頭戲もつ鍋/水炊き，提前訂位<br>
-      <strong>購物重點：</strong>天神地下街（日系品牌）、博多阪急（伴手禮）、Mont-bell（戶外裝備）
+      <strong>購物重點：</strong>天神地下街（日系品牌）、博多阪急（伴手禮）、Mont-bell（戶外裝備）<br>
+      <strong>分頭提醒：</strong>購物組與神社組先講好傍晚集合的時間與餐廳
     </div>
   </div>
 </div>
@@ -608,10 +620,10 @@
 </div>
 
 <!-- ======================== PART 5: VOTE ======================== -->
-<div class="section-title" id="vote">投票決策<span>5 題選一選，回覆「Q1-B, Q2-B, Q3-A...」即可</span></div>
+<div class="section-title" id="vote">決議結果<span>投票已截止 ‧ 兩位姨姨一致通過，以下為最終決定</span></div>
 
 <div class="note">
-  <strong>投票方式：</strong>每題選你偏好的選項，直接在群組回覆題號＋選項即可（例如「Q1-B, Q2-B, Q3-A, Q4-A, Q5-虹館」）。不在意就回「隨便」也 OK！
+  <strong>✅ 投票已截止：</strong>兩位姨姨投票一致 —— <strong>Q1-A、Q2-C、Q3-A、Q4-B、Q5-虹館</strong>。以下每題標示 <span style="color:#27AE60;font-weight:600;">✅ 定案</span> 者即為最終決定，其餘選項保留供參考。
 </div>
 
 <!-- Q1 -->
@@ -622,14 +634,14 @@
     <div class="context">夜楓點燈 17:00-21:00 免費。等的話到杉乃井約 19:00，不等約 14:30 到。</div>
   </div>
   <div class="options">
-    <div class="option">
-      <div class="label"><span class="vote-box" onclick="this.classList.toggle('checked')"></span>A — 等夜楓</div>
+    <div class="option decided">
+      <div class="label"><span class="vote-box checked" onclick="this.classList.toggle('checked')"></span>A — 等夜楓 <span class="decided-badge">✅ 定案</span></div>
       <div class="desc">白天一目八景＋傍晚等溪石園點燈，看水面倒映「逆さ紅葉」後開去別府。</div>
       <div class="pros">+ 白天＋夜楓都看到，免費隱藏版名所</div>
       <div class="cons">- 到杉乃井較晚，當天飯店享受時間短</div>
     </div>
-    <div class="option recommended">
-      <div class="label"><span class="vote-box" onclick="this.classList.toggle('checked')"></span>B — 不等，早到杉乃井 <span class="rec">⭐ 建議</span></div>
+    <div class="option">
+      <div class="label"><span class="vote-box" onclick="this.classList.toggle('checked')"></span>B — 不等，早到杉乃井</div>
       <div class="desc">白天看完就走，下午 check-in 杉乃井，整個傍晚泡棚湯看夕陽、小孩玩水著區。</div>
       <div class="pros">+ 充分享受杉乃井設施，小孩水著區放電</div>
       <div class="cons">- 放棄免費夜楓</div>
@@ -651,17 +663,17 @@
       <div class="pros">+ 景點全制霸</div>
       <div class="cons">- 一天四個點帶小孩很累</div>
     </div>
-    <div class="option recommended">
-      <div class="label"><span class="vote-box" onclick="this.classList.toggle('checked')"></span>B — 折衷：地獄 2 個＋高崎山 <span class="rec">⭐ 建議</span></div>
+    <div class="option">
+      <div class="label"><span class="vote-box" onclick="this.classList.toggle('checked')"></span>B — 折衷：地獄 2 個＋高崎山</div>
       <div class="desc">快速地獄巡禮 2 個 → 鐵輪午餐 → 高崎山看猴子 → 15:00 回杉乃井泡湯。</div>
       <div class="pros">+ 大人小孩都開心，不會太累</div>
       <div class="cons">- 地獄只看 2 個（省略較次要的）</div>
     </div>
-    <div class="option">
-      <div class="label"><span class="vote-box" onclick="this.classList.toggle('checked')"></span>C — 飯店日：半天觀光＋半天杉乃井</div>
+    <div class="option decided">
+      <div class="label"><span class="vote-box checked" onclick="this.classList.toggle('checked')"></span>C — 飯店日：半天觀光＋半天杉乃井 <span class="decided-badge">✅ 定案</span></div>
       <div class="desc">上午只去地獄巡禮＋午餐，下午整個泡在杉乃井：棚湯、水著區、BOWL & PARK。</div>
       <div class="pros">+ 最不趕，杉乃井設施超放電</div>
-      <div class="cons">- 水族館就不去了</div>
+      <div class="cons">- 高崎山猴子就不去了</div>
     </div>
   </div>
 </div>
@@ -674,8 +686,8 @@
     <div class="context">九年庵一年只開放 16 天（11/15-30），國家名勝。繞過去多花約 1.5 小時。</div>
   </div>
   <div class="options">
-    <div class="option">
-      <div class="label"><span class="vote-box" onclick="this.classList.toggle('checked')"></span>A — 去九年庵（購物約 5 小時）</div>
+    <div class="option decided">
+      <div class="label"><span class="vote-box checked" onclick="this.classList.toggle('checked')"></span>A — 去九年庵（購物約 5 小時）<span class="decided-badge">✅ 定案</span></div>
       <div class="desc">別府→九年庵（1.5h）→ 逛 1hr → 福岡（1h），約 14:00 到天神開始購物。</div>
       <div class="pros">+ 一年 16 天限定，苔庭配紅葉極美</div>
       <div class="cons">- 購物時間壓縮到 5 小時</div>
@@ -703,8 +715,8 @@
       <div class="pros">+ 不走散，行程好協調</div>
       <div class="cons">- 逛街＋神社節奏可能不合</div>
     </div>
-    <div class="option">
-      <div class="label"><span class="vote-box" onclick="this.classList.toggle('checked')"></span>B — 分頭：購物組 vs 神社組</div>
+    <div class="option decided">
+      <div class="label"><span class="vote-box checked" onclick="this.classList.toggle('checked')"></span>B — 分頭：購物組 vs 神社組 <span class="decided-badge">✅ 定案</span></div>
       <div class="desc">靖婷帶想去的人走櫛田神社＋住吉神社路線，其他人專心購物，傍晚集合吃晚餐。</div>
       <div class="pros">+ 各取所需，效率最高</div>
       <div class="cons">- 要約好集合時間地點</div>
@@ -720,8 +732,8 @@
     <div class="context">杉乃井有三個館，棚湯和水著區所有館共用。差別在房間新舊和景觀。</div>
   </div>
   <div class="options">
-    <div class="option recommended">
-      <div class="label"><span class="vote-box" onclick="this.classList.toggle('checked')"></span>虹館 <span class="rec">⭐ CP值</span></div>
+    <div class="option recommended decided">
+      <div class="label"><span class="vote-box checked" onclick="this.classList.toggle('checked')"></span>虹館 <span class="rec">⭐ CP值</span> <span class="decided-badge">✅ 定案</span></div>
       <div class="desc">¥15,000-25,000/人/晚。最老但有閣樓房型（小孩超愛爬上爬下），離棚湯最近。</div>
       <div class="pros">+ 價格最親民，閣樓房獨特體驗</div>
       <div class="cons">- 設施較舊</div>
@@ -848,11 +860,11 @@
 <!-- ======================== FOOTER ======================== -->
 <div class="footer">
   <div class="vote-fmt">
-    <strong>投票格式：</strong><br>
-    「Q1-B, Q2-B, Q3-A, Q4-A, Q5-虹館」
+    <strong>✅ 行程已定案：</strong><br>
+    Q1-A ‧ Q2-C ‧ Q3-A ‧ Q4-B ‧ Q5-虹館
   </div>
   <br>
-  11月姨姨賞楓團 ‧ v2.0 ‧ 2026.04
+  11月姨姨賞楓團 ‧ v2.1 ‧ 2026.05 已定案
   <br><br>
   <strong style="color:#C0392B;">預訂提醒：由布院旅館和杉乃井請儘快訂！</strong><br>
   11月是九州賞楓旺季，好房間很快就滿了
