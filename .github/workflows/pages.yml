@@ -23,9 +23,17 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: actions/configure-pages@v5
+      - name: Prepare only the public website files
+        shell: bash
+        run: |
+          set -euo pipefail
+          install -D index.html _site/index.html
+          install -D CNAME _site/CNAME
+          install -D '11月姨姨賞楓團/11月姨姨賞楓團_行程總覽.html' '_site/11月姨姨賞楓團/11月姨姨賞楓團_行程總覽.html'
+          test "$(find _site -type f | wc -l)" -eq 3
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: '.'
+          path: '_site'
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
