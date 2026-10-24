@@ -139,5 +139,91 @@
         }
       ]
     }
+  ],
+  "contexts": [
+    {
+      "id": "hakata-arrival",
+      "date": "2026-11-18",
+      "placements": {
+        "plan": 2
+      },
+      "title": "博多站前聖誕市集",
+      "decision": [
+        "入住、晚餐後，有體力再短逛；估21:00後。",
+        "免費現場入場；營業16:00–23:00，LO22:45。"
+      ],
+      "source": "fukuoka-christmas",
+      "detailIndexes": [
+        3,
+        4,
+        6
+      ]
+    },
+    {
+      "id": "comico-shopping",
+      "date": "2026-11-20",
+      "placements": {
+        "plan": 1
+      },
+      "title": "COMICO／奈良美智《Your Dog》",
+      "decision": [
+        "商店街順訪約60–75分（估）；仍可繼續逛街。",
+        "預約優先，現場有空位可入；未購票、未預約。"
+      ],
+      "tripSource": {
+        "date": "2026-11-20",
+        "category": "plan",
+        "detailIndexes": [
+          2,
+          3
+        ]
+      }
+    },
+    {
+      "id": "strawberry-return",
+      "date": "2026-11-23",
+      "placements": {
+        "plan": 1,
+        "travel": 1
+      },
+      "title": "筑紫野採草莓",
+      "decision": [
+        "回福岡途中；15:00／15:30僅候選，交通待核。",
+        "40分＋報到繞行，壓縮天神休息／購物。",
+        "完全預約、未預約；10/24空位快照，非即時。"
+      ],
+      "source": "chikushino-strawberry",
+      "detailIndexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    {
+      "id": "daimyo-evening",
+      "date": "2026-11-23",
+      "placements": {
+        "plan": 2,
+        "stay": 0,
+        "food": 2
+      },
+      "title": "大名花園城聖誕市集",
+      "decision": [
+        "飯店附近，晚餐後有體力短逛；免費現場入場。",
+        "營業12:00–22:00；精神好再延伸天神，不逛到閉場。"
+      ],
+      "source": "fukuoka-christmas",
+      "detailIndexes": [
+        0,
+        1,
+        2,
+        4,
+        5,
+        6
+      ]
+    }
   ]
 }
