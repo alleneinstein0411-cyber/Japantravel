@@ -87,6 +87,20 @@ nav{gap:22px}nav button{min-width:90px;min-height:52px}.mobile-note{display:none
 .route-option{margin:2px 0 6px 14px;padding:0 0 2px 12px;border-left:1px dotted #7a826c}.route-option[data-role=replacement]{border-left-style:dashed}.option-title{display:grid;grid-template-columns:96px 1fr 14px;gap:7px;align-items:baseline;font-size:14px;font-weight:500}.option-tag{font-size:12px;font-weight:500;line-height:1.6;color:#5a634e}.option-name{font-weight:500}.option-arrow{margin:0}.option-decision{font-size:12px;line-height:1.6;margin-top:2px}.option-activation{display:block;font-size:12px;color:#665c47;line-height:1.5}.option-help{font-size:12px!important;color:#66715b!important}.option-details{padding:8px 0 12px}.option-details p{font-size:14px!important}.candidate-picker{gap:4px 15px}.candidate-picker button{font-size:13px}
 @media(min-width:1600px){.route-option{margin-left:14px;padding-left:14px}.option-title{grid-template-columns:calc(7.2em - 14px) 1fr 18px;font-size:clamp(17px,.88vw,36px);gap:1em}.option-tag{font-size:clamp(13px,.73vw,26px)}.option-name{font-size:clamp(18px,1vw,36px)}.option-decision,.option-activation{font-size:clamp(15px,.82vw,30px)}.option-details p{font-size:clamp(18px,1vw,36px)!important}}
 @media(max-width:760px){.option-title{grid-template-columns:84px 1fr 12px;gap:5px;font-size:13px}.route-option{margin:0 0 4px 12px;padding:0 0 0 12px}.option-tag{font-size:12px}.option-decision{font-size:12px;line-height:1.55}.route-option summary{padding:3px 0;min-height:44px}.option-details p{font-size:14px!important}.option-activation{font-size:12px}}
+</style><style id="sweets-style">
+@media(min-width:761px) and (min-height:501px){.info.has-sweets{width:min(620px,49vw);top:17%;max-height:calc(100% - 208px)}}
+.sweets-guide{padding:4px 0 10px;color:#253f35}.sweets-kicker{font:12px Georgia,serif;letter-spacing:.20em;color:#676143;margin:9px 0 6px}
+.sweets-guide h2{font-family:"Songti TC","Noto Serif TC",serif;font-size:clamp(25px,3vw,34px);letter-spacing:.04em;line-height:1.2;margin:0 0 10px}
+.sweets-lead,.sweets-desc{font-size:16px;line-height:1.55;margin:0}.sweets-lead{margin-bottom:15px}
+.sweets-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px}
+.sweets-card{--wash:#f6eee1;--ink:#614026;display:flex;flex-direction:column;min-width:0;padding:14px 13px;gap:5px;background:var(--wash);border:1px solid #2b392523;border-radius:4px 18px 4px 18px}
+.sweets-card[data-sweet=dorayaki]{--wash:#f7e9e4;--ink:#743f37}.sweets-card[data-sweet=bread]{--wash:#f9eddd;--ink:#724b26}.sweets-card[data-sweet=coffee]{--wash:#e8eee2;--ink:#355440}
+.sweets-card-top{display:flex;align-items:center;justify-content:space-between;gap:6px;color:var(--ink);font-size:14px;font-weight:700}.sweets-card-top svg{flex:none}
+.sweets-card h3{font:700 19px/1.25 "Songti TC","Noto Serif TC",serif;overflow-wrap:anywhere;margin:0}
+.sweets-pick,.sweets-hours{font-size:14px;color:var(--ink);margin:0}.sweets-pick{font-weight:700}.sweets-hours{padding-top:4px}
+.sweets-links{display:flex;flex-wrap:wrap;gap:7px;margin-top:auto;padding-top:4px}.sweets-links a{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:3px 12px;border:1px solid currentColor;border-radius:999px;color:var(--ink);font-size:14px;font-weight:700;text-decoration:none}
+.sweets-links a:hover,.sweets-links a:focus-visible{background:#fff;color:#273c30;outline-offset:2px}.sweets-foot{font-size:13px;margin:12px 0 0;color:#545e4a}
+@media(max-width:760px){.sweets-grid{grid-template-columns:1fr}.sweets-card{padding:12px 14px}}
 </style></head><body><div id="arrival" class="arrival" role="status" aria-live="polite" aria-label="正在準備旅途風景">
 <div class="arrival-inner"><div class="arrival-wordmark">KYUSHU</div>
 <svg class="preening-tit" viewBox="0 0 240 210" aria-hidden="true">
@@ -507,6 +521,67 @@ nav{gap:22px}nav button{min-width:90px;min-height:52px}.mobile-note{display:none
           "text": "時間均為日本當地時間，11/1依官方店舖頁核對；三間離やどや都在開車5分鐘內。順路參考，不替換已訂安排。",
           "link": null,
           "linkLabel": null
+        }
+      ]
+    },
+    {
+      "id": "yufuin-sweets",
+      "date": "2026-11-20",
+      "title": "由布院甜點與咖啡",
+      "shortTitle": "由布院甜點",
+      "role": "side_trip",
+      "place": "散步口袋名單 · 由布院",
+      "caption": "從湖畔的老喫茶，到街角一杯自己烘的咖啡。",
+      "status": [
+        "散步可選",
+        "不改主行程"
+      ],
+      "rows": [],
+      "details": [],
+      "sweets": [
+        {
+          "theme": "tea",
+          "area": "金鱗湖旁",
+          "name": "天井棧敷",
+          "pick": "坐下來慢慢喝",
+          "description": "老酒造移築而成的喫茶店，點招牌 Mon Yufu 奶油乳酪甜點配咖啡。",
+          "hours": "09:00–17:00",
+          "query": "茶房 天井棧敷 由布院",
+          "official": "https://www.kamenoi-bessou.jp/facility/cafe-bar/",
+          "map": "https://www.google.com/maps/search/?api=1&query=%E8%8C%B6%E6%88%BF%20%E5%A4%A9%E4%BA%95%E6%A3%A7%E6%95%B7%20%E7%94%B1%E5%B8%83%E9%99%A2"
+        },
+        {
+          "theme": "dorayaki",
+          "area": "湯之坪街道",
+          "name": "鞠智 cucuchi",
+          "pick": "剛出爐的銅鑼燒",
+          "description": "想邊走邊吃就選現烤銅鑼燒；看到季節限定的栗子蒙布朗口味再點。",
+          "hours": "平日 10:00–17:00",
+          "query": "鞠智 cucuchi 由布院",
+          "official": "https://cucuchi.jp/access/",
+          "map": "https://www.google.com/maps/search/?api=1&query=%E9%9E%A0%E6%99%BA%20cucuchi%20%E7%94%B1%E5%B8%83%E9%99%A2"
+        },
+        {
+          "theme": "bread",
+          "area": "湯之坪街道",
+          "name": "米菲兔森林麵包店",
+          "pick": "兔子麵包帶著走",
+          "description": "買個米菲造型麵包當散步點心，也可以逛一下店裡的小物。",
+          "hours": "09:30–17:30",
+          "query": "みっふぃー森のきっちん＆べーかりー 湯布院店",
+          "official": "https://miffykitchenbakery.jp/",
+          "map": "https://www.google.com/maps/search/?api=1&query=%E3%81%BF%E3%81%A3%E3%81%B5%E3%81%83%E3%83%BC%E6%A3%AE%E3%81%AE%E3%81%8D%E3%81%A3%E3%81%A1%E3%82%93%EF%BC%86%E3%81%B9%E3%83%BC%E3%81%8B%E3%82%8A%E3%83%BC%20%E6%B9%AF%E5%B8%83%E9%99%A2%E5%BA%97"
+        },
+        {
+          "theme": "coffee",
+          "area": "由布院站附近",
+          "name": "CAFE BON VOYAGE!",
+          "pick": "專程喝一杯淺焙",
+          "description": "1998 年開業的自家烘焙咖啡店。可點淺焙 City blend ¥500，想喝單品可選耶加雪菲 ¥700。營業時間以店家當日公告為準。",
+          "hours": "11:00–22:00 · 現金",
+          "query": "CAFE BON VOYAGE 由布市湯布院町川上3077-2",
+          "official": "https://www.morinokousaten.jp/shop_2.html",
+          "map": "https://www.google.com/maps/search/?api=1&query=CAFE%20BON%20VOYAGE%20%E7%94%B1%E5%B8%83%E5%B8%82%E6%B9%AF%E5%B8%83%E9%99%A2%E7%94%BA%E5%B7%9D%E4%B8%8A3077-2"
         }
       ]
     }
@@ -2211,17 +2286,21 @@ nav{gap:22px}nav button{min-width:90px;min-height:52px}.mobile-note{display:none
  const detailBody=s=>'<p>'+formatTime(s.text)+'</p>'+(s.link?'<a href="'+escape(s.link)+'" target="_blank" rel="noopener noreferrer">'+escape(s.linkLabel||(s.link.includes('google.com/maps')?'地圖搜尋':'官方資訊'))+' ↗</a>':'')+(s.children?s.children.map(child=>'<h4>'+escape(child.title)+'</h4>'+detailBody(child)).join(''):'');
  const detailSection=s=>s.collapsed?'<section><details class="candidate-extension"><summary>'+escape(s.title)+'</summary>'+detailBody(s)+'</details></section>':'<section><h3>'+formatTime(s.title)+'</h3>'+detailBody(s)+'</section>';
  const contextMarkup=x=>'<div class="route-option" data-role="'+escape(x.role)+'"><dt class="sr-only">'+escape(roleLabel(x))+'</dt><dd><details data-context="'+x.id+'"'+(inlineStates.get(x.id)?' open':'')+'><summary><span class="option-title"><span class="option-tag">'+escape(roleLabel(x))+'</span><span class="option-name">'+escape(x.title)+'</span><span class="option-arrow" aria-hidden="true">＋</span></span>'+(x.activation?'<span class="option-activation">'+escape(x.activation)+'</span>':'')+'<span class="option-decision">'+x.decision.map(t=>'<span>'+formatTime(t)+'</span>').join('')+'</span></summary><div class="option-details"><p class="option-help">展開僅查看資訊，不會啟用備案或更動已訂主行程。</p>'+contextDetails(x).map(detailSection).join('')+'</div></details></dd></div>';
+
+ const sweetsIcons={"tea":"<path d=\"M5 11h13v3a5 5 0 0 1-5 5h-3a5 5 0 0 1-5-5zM18 12h1a2 2 0 1 1 0 4h-1M4 21h16M9 8c-2-2 2-2 0-4m5 4c-2-2 2-2 0-4\"/>","dorayaki":"<path d=\"M3 14c0-3 4-6 9-6s9 3 9 6-4 5-9 5-9-2-9-5Zm1-1c4 3 12 3 16 0M10 5l2-2 2 2\"/>","bread":"<path d=\"M7 11C5 6 6 3 8 3s3 4 3 6h2c0-2 1-6 3-6s3 3 1 8c3 1 4 3 4 5 0 3-4 5-9 5s-9-2-9-5c0-2 1-4 4-5zM9 15h.01m6 0h.01m-4 2 2 2m0-2-2 2\"/>","coffee":"<path d=\"M7 4h10l-3 7h-4Zm3 7h4v2c4 1 6 3 6 5 0 2-3 3-8 3s-8-1-8-3c0-2 2-4 6-5zm-4 6c4 1 8 1 12 0M9 7h6\"/>"};
+ const sweetsMarkup=c=>'<section class="sweets-guide" aria-labelledby="sweets-heading"><p class="sweets-kicker" aria-hidden="true">YUFUIN COFFEE &amp; SWEETS</p><h2 id="sweets-heading">'+escape(c.title)+'</h2><p class="sweets-lead">想坐一會、吃個甜點，或專程喝杯好咖啡。四家任選，不另外排行程。</p><div class="sweets-grid">'+c.sweets.map(s=>'<article class="sweets-card" data-sweet="'+escape(s.theme)+'"><div class="sweets-card-top"><span>'+escape(s.area)+'</span><svg width="25" height="25" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'+sweetsIcons[s.theme]+'</svg></div><h3>'+escape(s.name)+'</h3><p class="sweets-pick">'+escape(s.pick)+'</p><p class="sweets-desc">'+escape(s.description)+'</p><p class="sweets-hours">'+escape(s.hours)+'</p><div class="sweets-links"><a href="'+escape(s.map)+'" target="_blank" rel="noopener noreferrer" aria-label="'+escape(s.name)+' 地圖">地圖</a><a href="'+escape(s.official)+'" target="_blank" rel="noopener noreferrer" aria-label="'+escape(s.name)+' 官網">官網</a></div></article>').join('')+'</div><p class="sweets-foot">表定營業時間皆為日本時間；限定點心以當日供應為準。</p></section>';
  function render(){
   const d=data[day],candidate=key==='candidates',c=candidate?candidates.items[candidateIndex]:d[key],s=state();
   document.querySelector('#place').textContent=candidate?(c.place||'候選行程 · 福岡'):d.place;document.querySelector('#hero').innerHTML=candidate?'留些彈性，<br>再選一站。':d.hero;document.querySelector('#caption').textContent=candidate?(c.caption||'確認交通與預約後，再決定是否加入。'):d.caption;
   document.querySelector('#label').textContent=candidate?'獨立候選 · 尚未排入':'11 / '+d.short+'　星期'+d.weekday;document.querySelector('#number').textContent=candidate?String(candidateIndex+1).padStart(2,'0')+' / '+String(candidates.items.length).padStart(2,'0')+' 候選':String(day+1).padStart(2,'0')+' / 07';
-  content.innerHTML=(candidate?'<div class="candidate-picker" role="group" aria-label="選擇候選行程">'+candidates.items.map((item,i)=>'<button type="button" data-candidate="'+i+'" aria-pressed="'+(i===candidateIndex)+'">'+escape(item.shortTitle||item.title)+'</button>').join('')+'</div>':'')+'<h2>'+escape(candidate?c.title:key==='stay'&&day===6?'今天退房':titles[key])+'</h2>'+(candidate?'<p class="index-role">'+escape(roleLabel(c))+(c.activation?' · '+escape(c.activation):'')+'</p>':'')+'<dl class="facts">'+c.rows.map((r,i)=>'<div class="fact"><dt>'+formatTime(r.label)+'</dt><dd>'+formatTime(r.text)+(r.status?' <span class="status">'+escape(r.status)+'</span>':'')+'</dd></div>'+(!candidate?(candidates.contexts||[]).filter(x=>x.date===d.date&&x.placements[key]===i).map(contextMarkup).join(''):'')).join('')+'</dl>';
+  content.innerHTML=(candidate?'<div class="candidate-picker" role="group" aria-label="選擇候選行程">'+candidates.items.map((item,i)=>'<button type="button" data-candidate="'+i+'" aria-pressed="'+(i===candidateIndex)+'">'+escape(item.shortTitle||item.title)+'</button>').join('')+'</div>':'')+(c.sweets?sweetsMarkup(c):'<h2>'+escape(candidate?c.title:key==='stay'&&day===6?'今天退房':titles[key])+'</h2>'+(candidate?'<p class="index-role">'+escape(roleLabel(c))+(c.activation?' · '+escape(c.activation):'')+'</p>':'')+'<dl class="facts">'+c.rows.map((r,i)=>'<div class="fact"><dt>'+formatTime(r.label)+'</dt><dd>'+formatTime(r.text)+(r.status?' <span class="status">'+escape(r.status)+'</span>':'')+'</dd></div>'+(!candidate?(candidates.contexts||[]).filter(x=>x.date===d.date&&x.placements[key]===i).map(contextMarkup).join(''):'')).join('')+'</dl>');
+  info.classList.toggle('has-sweets',Boolean(c.sweets));
   const visibleDetails=c.details.filter((item,i)=>candidate||!(candidates.contexts||[]).some(x=>x.date===d.date&&x.placements[key]!==undefined&&x.tripSource&&x.tripSource.category===key&&x.tripSource.detailIndexes.includes(i)));
   detail.innerHTML=visibleDetails.map(detailSection).join('');
 
   document.querySelectorAll('[data-day]').forEach((b,i)=>{b.setAttribute('aria-selected',String(!candidate&&i===day));b.tabIndex=i===day?0:-1});
   document.querySelectorAll('[data-key]').forEach(b=>{b.setAttribute('aria-selected',String(b.dataset.key===key));b.tabIndex=b.dataset.key===key?0:-1});
-  content.setAttribute('aria-labelledby',candidate?'tab-candidates':'tab-'+key+' date-'+day);box.open=s.open;sync();reading.scrollTop=s.scroll;
+  content.setAttribute('aria-labelledby',candidate?'tab-candidates':'tab-'+key+' date-'+day);box.hidden=Boolean(c.sweets);box.open=!c.sweets&&s.open;sync();reading.scrollTop=s.scroll;
   document.querySelector('#announcement').textContent=candidate?'候選行程，'+c.title+'；'+c.status.join('，'):'11月'+d.short+'日，'+titles[key];
  }
  function choose(nextDay,nextKey,push=true){if(push&&nextDay===day&&nextKey===key)return;state().scroll=reading.scrollTop;day=nextDay;key=nextKey;render();if(push)history.pushState(null,'','#day='+data[day].date+'&view='+key+(key==='candidates'?'&candidate='+candidates.items[candidateIndex].id:''))}
@@ -2230,7 +2309,7 @@ nav{gap:22px}nav button{min-width:90px;min-height:52px}.mobile-note{display:none
  content.addEventListener('toggle',e=>{if(e.target.matches('details[data-context]'))inlineStates.set(e.target.dataset.context,e.target.open)},true);
  content.addEventListener('click',e=>{const b=e.target.closest('[data-candidate]');if(!b)return;const next=Number(b.dataset.candidate);if(next===candidateIndex)return;state().scroll=reading.scrollTop;candidateIndex=next;render();history.pushState(null,'','#view=candidates&candidate='+candidates.items[next].id);content.querySelector('[data-candidate="'+next+'"]').focus({preventScroll:true})});
  bindRoving('[data-day]',b=>choose(Number(b.dataset.day),key==='candidates'?'plan':key));bindRoving('[data-key]',b=>choose(day,b.dataset.key));
- box.addEventListener('toggle',()=>{state().open=box.open;sync()});
+ box.addEventListener('toggle',()=>{if(!box.hidden)state().open=box.open;sync()});
  document.addEventListener('keydown',e=>{if(e.key==='Escape'&&box.open){box.open=false;state().open=false;sync();box.querySelector('summary').focus()}});
  window.addEventListener('popstate',fromURL);fromURL();document.documentElement.classList.replace('no-js','js');
 })();
